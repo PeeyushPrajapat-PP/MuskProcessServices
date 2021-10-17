@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuskProcessServices", "MuskProcessServices\MuskProcessServices.csproj", "{7145AAF8-7EF6-4519-B175-B29FC940BC09}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7145AAF8-7EF6-4519-B175-B29FC940BC09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7145AAF8-7EF6-4519-B175-B29FC940BC09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7145AAF8-7EF6-4519-B175-B29FC940BC09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7145AAF8-7EF6-4519-B175-B29FC940BC09}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BE691963-411D-4C03-9A59-8E80545015AD}
+	EndGlobalSection
+EndGlobal
