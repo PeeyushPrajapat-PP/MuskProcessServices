@@ -75,5 +75,14 @@ namespace MuskProcessServices
         {
 
         }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+            //tableLayoutPanel1.Controls.Add(new Label() { Text = "Type:", Anchor = AnchorStyles.Left, AutoSize = true }, 0, 0);
+            /*var columnHeaderStyle = new TextBox();
+            int row2 = tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0));
+            columnHeaderStyle.Text = "Date";
+            tableLayoutPanel1.Controls.Add(columnHeaderStyle, 0, 0);*/
+        }
     }
 }

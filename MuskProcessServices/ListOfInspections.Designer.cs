@@ -43,7 +43,16 @@ namespace MuskProcessServices
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.col_inspections = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_totalInterventions = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_enteredBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_inspector = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_workArea = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_site = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // headingText
@@ -192,11 +201,79 @@ namespace MuskProcessServices
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.col_date,
+            this.col_site,
+            this.col_workArea,
+            this.col_inspector,
+            this.col_enteredBy,
+            this.col_totalInterventions,
+            this.col_inspections});
+            this.dataGridView1.Location = new System.Drawing.Point(31, 551);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(1239, 72);
+            this.dataGridView1.TabIndex = 15;
+            // 
+            // col_inspections
+            // 
+            this.col_inspections.HeaderText = "Inspections";
+            this.col_inspections.MinimumWidth = 6;
+            this.col_inspections.Name = "col_inspections";
+            this.col_inspections.Width = 125;
+            // 
+            // col_totalInterventions
+            // 
+            this.col_totalInterventions.HeaderText = "Total Interventions";
+            this.col_totalInterventions.MinimumWidth = 6;
+            this.col_totalInterventions.Name = "col_totalInterventions";
+            this.col_totalInterventions.Width = 125;
+            // 
+            // col_enteredBy
+            // 
+            this.col_enteredBy.HeaderText = "Entered by";
+            this.col_enteredBy.MinimumWidth = 6;
+            this.col_enteredBy.Name = "col_enteredBy";
+            this.col_enteredBy.Width = 125;
+            // 
+            // col_inspector
+            // 
+            this.col_inspector.HeaderText = "Inspector";
+            this.col_inspector.MinimumWidth = 6;
+            this.col_inspector.Name = "col_inspector";
+            this.col_inspector.Width = 125;
+            // 
+            // col_workArea
+            // 
+            this.col_workArea.HeaderText = "Work Area";
+            this.col_workArea.MinimumWidth = 6;
+            this.col_workArea.Name = "col_workArea";
+            this.col_workArea.Width = 125;
+            // 
+            // col_site
+            // 
+            this.col_site.HeaderText = "Site";
+            this.col_site.MinimumWidth = 6;
+            this.col_site.Name = "col_site";
+            this.col_site.Width = 125;
+            // 
+            // col_date
+            // 
+            this.col_date.HeaderText = "Date";
+            this.col_date.MinimumWidth = 6;
+            this.col_date.Name = "col_date";
+            this.col_date.Width = 125;
+            // 
             // ListOfInspections
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1471, 709);
+            this.ClientSize = new System.Drawing.Size(1471, 809);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.comboBox4);
@@ -215,6 +292,7 @@ namespace MuskProcessServices
             this.Text = "ListOfInspections";
             this.Load += new System.EventHandler(this.ListOfInspections_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,5 +314,13 @@ namespace MuskProcessServices
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_site;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_workArea;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_inspector;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_enteredBy;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_totalInterventions;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_inspections;
     }
 }
