@@ -59,5 +59,16 @@ namespace MuskProcessServices
         {
 
         }
+
+        /* TODO: Remove code below
+         * Testing DB connection. Leaving for example. 
+         * 
+         * private void btnLoadData_Click(object sender, EventArgs e)
+        {
+            DBConnection dbConnection = DBConnection.getInstanceOfDBConnection();
+            DataSet datasetUser = dbConnection.getDataSet("SELECT * FROM Users");
+            //Console.log(datasetUser.Tables[0]);
+            dgvUsers.DataSource = datasetUser.Tables[0];
+        }*/
     }
 }
