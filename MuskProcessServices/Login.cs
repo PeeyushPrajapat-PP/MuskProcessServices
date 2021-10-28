@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MuskProcessServices
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
-        public Form1()
+        public Login()
         {
             InitializeComponent();
         }
@@ -46,7 +46,7 @@ namespace MuskProcessServices
             if ((username == users[0] && password == passwords[0] )|| (username == users[1] && password == passwords[1]))
             {
                 this.Hide();
-                Form2 f2 = new Form2();
+                Menu f2 = new Menu();
                 f2.ShowDialog();
             }
 

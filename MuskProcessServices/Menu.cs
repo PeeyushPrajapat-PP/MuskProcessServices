@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MuskProcessServices
 {
-    public partial class Form2 : Form
+    public partial class Menu : Form
     {
-        public Form2()
+        public Menu()
         {
             InitializeComponent();
         }
