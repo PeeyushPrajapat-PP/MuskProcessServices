@@ -28,13 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.usernameLabel = new System.Windows.Forms.Label();
             this.usernameInput = new System.Windows.Forms.TextBox();
             this.passwordInput = new System.Windows.Forms.TextBox();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.loginBtn = new System.Windows.Forms.Button();
+            this.errorProviderApp = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderApp)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -67,6 +70,7 @@
             this.usernameInput.Name = "usernameInput";
             this.usernameInput.Size = new System.Drawing.Size(263, 30);
             this.usernameInput.TabIndex = 2;
+            this.usernameInput.TextChanged += new System.EventHandler(this.validateUsername);
             // 
             // passwordInput
             // 
@@ -77,6 +81,7 @@
             this.passwordInput.PasswordChar = '*';
             this.passwordInput.Size = new System.Drawing.Size(263, 30);
             this.passwordInput.TabIndex = 4;
+            this.passwordInput.TextChanged += new System.EventHandler(this.validatePassword);
             // 
             // passwordLabel
             // 
@@ -101,6 +106,10 @@
             this.loginBtn.UseVisualStyleBackColor = true;
             this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
+            // errorProviderApp
+            // 
+            this.errorProviderApp.ContainerControl = this;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -118,6 +127,7 @@
             this.Text = "Login";
             this.Load += new System.EventHandler(this.LoginForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderApp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,6 +141,7 @@
         private System.Windows.Forms.TextBox passwordInput;
         private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.Button loginBtn;
+        private System.Windows.Forms.ErrorProvider errorProviderApp;
     }
 }
 

@@ -20,38 +20,52 @@ namespace MuskProcessServices
             string username = usernameInput.Text;
             string password = passwordInput.Text;
 
-            if (username.Equals(""))
+            bool result = User.Login(username, password);
+
+            if (result)
             {
-                MessageBox.Show("Please enter a valid username...");
-            }
-            else if (password.Equals(""))
-            {
-                MessageBox.Show("Please enter a valid password...");
+                MessageBox.Show("Welcome back!");
             }
             else
             {
-                bool result = User.Login(usernameInput.Text, passwordInput.Text);
-                if (result)
-                {
-                    MessageBox.Show("Success");
-                }
-                else
-                {
-                    MessageBox.Show("Failure");
-                }
+                MessageBox.Show("Incorrect credentials.");
             }
         }
 
-        /* TODO: Remove code below
-         * Testing DB connection. Leaving for example. 
-
-        private void btnLoadData_Click_1(object sender, EventArgs e)
+        private void validateUsername(object sender, EventArgs e)
         {
-            DBConnection dbConnection = DBConnection.getInstanceOfDBConnection();
-            DataSet datasetUser = dbConnection.getDataSet("SELECT * FROM Users");
-            //Console.log(datasetUser.Tables[0]);
-            dgvUsers.DataSource = datasetUser.Tables[0];
+            if (string.IsNullOrWhiteSpace(usernameInput.Text))
+            {
+                usernameInput.Focus();
+                errorProviderApp.SetError(usernameInput, "Username should not be left blank!");
+            }
+            else if (usernameInput.Text.Contains(" "))
+            {
+                usernameInput.Focus();
+                errorProviderApp.SetError(usernameInput, "Username cannot have white spaces in between.");
+            }
+            else
+            {
+                errorProviderApp.SetError(usernameInput, "");
+            }
         }
-        */
+
+        private void validatePassword(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(passwordInput.Text))
+            {
+                passwordInput.Focus();
+                errorProviderApp.SetError(passwordInput, "Password should not be left blank!");
+            }
+            else if (passwordInput.Text.Contains(" "))
+            {
+                usernameInput.Focus();
+                errorProviderApp.SetError(passwordInput, "Password cannot have white spaces in between.");
+            }
+            else
+            {
+                errorProviderApp.SetError(passwordInput, "");
+            }
+        }
     }
 }

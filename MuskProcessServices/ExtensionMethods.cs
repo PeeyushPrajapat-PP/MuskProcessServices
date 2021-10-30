@@ -9,7 +9,7 @@ namespace MuskProcessServices
 {
     public static class ExtensionMethods
     {
-        public static DataSet ConnectToDB(this String queryExpression)
+        public static DataSet getDataSetFromDB(this String queryExpression)
         {
             DBConnection dbConnection = DBConnection.getInstanceOfDBConnection();
             DataSet dataset = dbConnection.getDataSet(queryExpression);
