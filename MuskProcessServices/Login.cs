@@ -34,25 +34,27 @@ namespace MuskProcessServices
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string[] users = {"inspector","administrator"};
-            string[] passwords = { "guest1", "admin1" };
-
-            //string user = "Peeyush";
-            //string pass = "password";
-
             string username = txtUsername.Text;
             string password = txtPassword.Text;
 
-            if ((username == users[0] && password == passwords[0] )|| (username == users[1] && password == passwords[1]))
+            if (username.Equals(""))
             {
-                this.Hide();
-                Menu f2 = new Menu();
-                f2.ShowDialog();
+                MessageBox.Show("Please enter a valid username...");
+            } else if (password.Equals(""))
+            {
+                MessageBox.Show("Please enter a valid password...");
+            } else
+            {
+                bool result = User.Login(txtUsername.Text, txtPassword.Text);
+                if (result)
+                {
+                    MessageBox.Show("Success");
+                }
+                else
+                {
+                    MessageBox.Show("Failure");
+                }
             }
-
-
-
-
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

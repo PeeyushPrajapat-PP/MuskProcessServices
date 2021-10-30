@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MuskProcessServices
 {
-    class DBConnection
+    public class DBConnection
     {
         private static DBConnection _instance;
 
@@ -40,5 +40,6 @@ namespace MuskProcessServices
 
             return dataSet;
         }
+
     }
 }
