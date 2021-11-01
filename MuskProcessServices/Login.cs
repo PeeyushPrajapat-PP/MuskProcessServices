@@ -25,6 +25,7 @@ namespace MuskProcessServices
             if (result)
             {
                 MessageBox.Show("Welcome back!");
+                //MessageBox.Show(AuthState.CurrentUser.Username);
             }
             else
             {

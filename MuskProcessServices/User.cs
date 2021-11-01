@@ -21,8 +21,9 @@ namespace MuskProcessServices {
         private DateTime? _updatedAt { get; set; }
         private DateTime? _createdAt { get; set; }
 
-        public User() { }
-
+        public User()
+        {
+        }
 
         // Constructor that includes all properties;
         public User(string username, string password, string firstname, string surname, string email, int role, DateTime? updatedAt = null, DateTime? createdAt = null)
@@ -44,19 +45,35 @@ namespace MuskProcessServices {
             DataSet result = queryExpression.getDataSetFromDB();
 
             string outputta = string.Join(",", result.Tables[0].Rows[0]);
-            
-            //MessageBox.Show(result.Tables[0].Rows[0].Field<string>("Email"));
 
-            //User currentUser = ExtensionMethods.FormatDataRowToObject<User>(result.Tables[0].Rows[0]);
+            //MessageBox.Show(result.Tables[0].Rows[0].Field<string>("Email"));
+            User currentUser = FormatDataRowToObject(result.Tables[0].Rows[0]);
+            AuthState.CurrentUser = currentUser;
 
             //MessageBox.Show(currentUser._email);
 
             return result.Tables[0].Rows.Count == 1 ? true : false;
         }
 
-        /*private User FormatDataRowToObject(DataRow datarow)
+        private static User FormatDataRowToObject(DataRow datarow)
         {
-            return 
-        }*/
+            User user = new User();
+
+            user._email = datarow.Field<string>("Email");
+            user._firstname = datarow.Field<string>("Firstname");
+            user._surname = datarow.Field<string>("Surname");
+            user._username = datarow.Field<string>("Username");
+            user._password = datarow.Field<string>("Password");
+            user._role = datarow.Field<int>("Role");
+
+            return user;
+        }
+
+
+        public string Username
+        {
+            get { return _username; }   // get method
+            set { _username = value; }  // set method
+        }
     }
 }
