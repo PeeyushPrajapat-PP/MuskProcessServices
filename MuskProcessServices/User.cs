@@ -44,15 +44,16 @@ namespace MuskProcessServices {
             string queryExpression = String.Format("SELECT * FROM Users WHERE username='{0}' AND password='{1}'", username, password);
             DataSet result = queryExpression.getDataSetFromDB();
 
-            string outputta = string.Join(",", result.Tables[0].Rows[0]);
-
-            //MessageBox.Show(result.Tables[0].Rows[0].Field<string>("Email"));
             User currentUser = FormatDataRowToObject(result.Tables[0].Rows[0]);
-            AuthState.CurrentUser = currentUser;
 
-            //MessageBox.Show(currentUser._email);
-
-            return result.Tables[0].Rows.Count == 1 ? true : false;
+            if (result.Tables[0].Rows.Count == 1)
+            {
+                SharedMethods.CurrentUser = currentUser;
+                return true;
+            } else
+            {
+                return false;
+            }
         }
 
         private static User FormatDataRowToObject(DataRow datarow)
@@ -72,8 +73,38 @@ namespace MuskProcessServices {
 
         public string Username
         {
-            get { return _username; }   // get method
-            set { _username = value; }  // set method
+            get { return _username; }
+            set { _username = value; }
+        }
+
+        public string Email
+        {
+            get { return _email; }
+            set { _email = value; }
+        }
+
+        public string Firstname
+        {
+            get { return _firstname; }
+            set { _firstname = value; }
+        }
+
+        public string Surname
+        {
+            get { return _surname; }
+            set { _surname = value; }
+        }
+
+        public int Role
+        {
+            get { return _role; }
+            set { _role = value; }
+        }
+
+        public string Password
+        {
+            get { return _password; }
+            set { _password = value; }
         }
     }
 }
