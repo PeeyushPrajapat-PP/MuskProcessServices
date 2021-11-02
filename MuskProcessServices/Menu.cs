@@ -15,6 +15,9 @@ namespace MuskProcessServices
         public Menu()
         {
             InitializeComponent();
+
+            // Display username of current user
+            //MessageBox.Show(AuthState.CurrentUser.Username);
         }
 
         private void label1_Click(object sender, EventArgs e)
