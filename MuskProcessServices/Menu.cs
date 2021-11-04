@@ -34,5 +34,10 @@ namespace MuskProcessServices
         {
             (new NewSiteInspection()).Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            (new Monthly_Inspection_Report()).Show();
+        }
     }
 }
