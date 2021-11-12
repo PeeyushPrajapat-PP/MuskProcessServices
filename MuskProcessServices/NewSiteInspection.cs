@@ -15,6 +15,19 @@ namespace MuskProcessServices
         public NewSiteInspection()
         {
             InitializeComponent();
+
+            List<MuskSite> items = MuskSite.getAllSites();
+
+            foreach(MuskSite site in items)
+            {
+                SharedMethods.ComboboxItem item = new SharedMethods.ComboboxItem();
+                item.Text = site.Name;
+                item.Value = site.SiteId;
+
+                comboBox1.Items.Add(item);
+            }
+
+            comboBox1.SelectedIndex = 0;
         }
 
         private void Form3_Load(object sender, EventArgs e)
@@ -82,6 +95,18 @@ namespace MuskProcessServices
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+            
 
         }
     }

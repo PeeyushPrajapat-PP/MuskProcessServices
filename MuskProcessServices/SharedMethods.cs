@@ -18,6 +18,20 @@ namespace MuskProcessServices
         }
 
         /**
+         * Combobox item to format dropdown list
+         */
+        public class ComboboxItem
+        {
+            public string Text { get; set; }
+            public object Value { get; set; }
+
+            public override string ToString()
+            {
+                return Text;
+            }
+        }
+
+        /**
          * A shared metod to use whenever getting data from the Database using SQL string.
          */
         public static DataSet getDataSetFromDB(this String queryExpression)

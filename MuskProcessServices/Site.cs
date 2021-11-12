@@ -7,21 +7,21 @@ using System.Threading.Tasks;
 
 namespace MuskProcessServices
 {
-    class Site
+    class MuskSite
     {
         
         private int siteId { get; set; }
         private string name { get; set; }
-        public Site(int siteId, string name)
+        public MuskSite(int siteId, string name)
         {
             this.siteId = siteId;
             this.name = name;
         }
-        public Site()
+        public MuskSite()
         {
 
         }
-        public List<Site> getAllSites()
+        public static List<MuskSite> getAllSites()
         {
             //select all sites from database 
             string queryExpression = String.Format("SELECT * FROM Sites");
@@ -32,12 +32,12 @@ namespace MuskProcessServices
             //map data from the database to class site
 
             // Empty list of sites
-            List<Site> sites = new List<Site>();
+            List<MuskSite> sites = new List<MuskSite>();
 
             foreach (DataRow row in result.Tables[0].Rows)
             {
                 // map and add new site to list
-                Site site = new Site();
+                MuskSite site = new MuskSite();
 
                 site.siteId = row.Field<int>("SiteID");
                 site.name = row.Field<string>("Name");
@@ -50,7 +50,17 @@ namespace MuskProcessServices
             return sites;
         }
 
+        public int SiteId
+        {
+            get { return siteId; }
+            set { siteId = value; }
+        }
 
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
 
     }
 }
