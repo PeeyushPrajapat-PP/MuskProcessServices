@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -78,6 +79,43 @@ namespace MuskProcessServices
             if (obj != null)
                 MessageBox.Show(string.Format(".{0} - {1} selected", obj._subHeaderID, obj._subTitle, MessageBoxButtons.OK, MessageBoxIcon.Information));
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string imageLocation = "";
+            try
+            {
+                OpenFileDialog dialog = new OpenFileDialog();
+                dialog.Filter = "jpg files(*,jpg)|*,jpg| PNG files(*,png)|*,.png| All Files(*,*)|*,*|";
+
+                if(dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    imageLocation = dialog.FileName;
+
+                    pictureBox1.ImageLocation = imageLocation;
+
+                }
+
+
+            } catch (Exception)
+            {
+                //if () ;
+
+                
+                MessageBox.Show("An Error has Occured", "Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+
+
+            }
+            File.Copy(pictureBox1.Text, Path.Combine(@"C:\Users\iamoj\source\repos\MuskProcessServices\MuskProcessServices\Images\", Path.GetFileName(pictureBox1.Text)), true);
+            button1.Text = "Image File Saved Successful";
+
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }
