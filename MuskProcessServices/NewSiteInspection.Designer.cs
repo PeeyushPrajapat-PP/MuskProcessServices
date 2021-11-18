@@ -376,14 +376,6 @@ namespace MuskProcessServices
             // 
             this.section.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.section.FormattingEnabled = true;
-            this.section.Items.AddRange(new object[] {
-            "Working Standards",
-            "Quality",
-            "Site Rules",
-            "Environmental",
-            "Protection of Individuals",
-            "Equipment",
-            "Other"});
             this.section.Location = new System.Drawing.Point(568, 203);
             this.section.Name = "section";
             this.section.Size = new System.Drawing.Size(136, 28);

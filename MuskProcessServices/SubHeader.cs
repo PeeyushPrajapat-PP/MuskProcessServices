@@ -8,11 +8,54 @@ namespace MuskProcessServices
 {
     class SubHeader
     {
-        public int _subHeaderID { get; set; }
-        public string _subTitle { get; set; }
+        public int subHeaderId { get; set; }
+        public string subTitle { get; set; }
+
+        public SubHeader(int subHeaderId, string subTitle) 
+        {
+            this.subHeaderId = subHeaderId;
+            this.subTitle = subTitle;
+        }
+
+        public SubHeader() 
+        {
         
-        private DateTime? _updatedAt { get; set; }
-        private DateTime? _createdAt { get; set; }
+        }
+
+        public static List<SubHeader> getAllSubHeaders() 
+        {
+
+            string queryExpression = String.Format("SELECT * FROM SubHeader");
+
+            List<SubHeader> subHeaders = new List<SubHeader>();
+
+            foreach (DataRow row in result.Table[0].Rows) 
+            {
+                SubHeader subHeader = new SubHeader();
+
+                subHeader.subHeaderId = row.Field<int>("SubHeaderID");
+                subHeader.subTitle = row.Field<string>("SubTitle");
+
+                return subHeaders;
+            
+
+            }
+        }
+
+        public int SubHeaderId
+        {
+            get { return SubHeaderId; }
+            set { SubHeaderId = value; }
+        }
+
+        public string SubTitle
+        {
+            get { return subTitle; }
+            set { subTitle = value; }
+        }
+
+
+
     }
 
 

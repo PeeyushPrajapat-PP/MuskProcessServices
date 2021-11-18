@@ -11,7 +11,11 @@ namespace MuskProcessServices
 {
     public class Header
     {
+        public int _HeaderID { get; set; }
+        public string _Title { get; set; }
 
+        private DateTime? _updatedAt { get; set; }
+        private DateTime? _createdAt { get; set; }
 
     }
 

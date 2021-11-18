@@ -49,17 +49,7 @@ namespace MuskProcessServices
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<SubHeader> list = new List<SubHeader>();
-            list.Add(new SubHeader() { _subHeaderID = 1, _subTitle = "Working Standards" });
-            list.Add(new SubHeader() { _subHeaderID = 2, _subTitle = "Quality" });
-            list.Add(new SubHeader() { _subHeaderID = 3, _subTitle = "Site Rules" });
-            list.Add(new SubHeader() { _subHeaderID = 4, _subTitle = "Environmental" });
-            list.Add(new SubHeader() { _subHeaderID = 5, _subTitle = "Protection of Individuals" });
-            list.Add(new SubHeader() { _subHeaderID = 6, _subTitle = "Equipment" });
-            list.Add(new SubHeader() { _subHeaderID = 7, _subTitle = "Other" });
-            section.DataSource = list;
-            section.ValueMember = "subHeaderID";
-            section.DisplayMember = "subTitle";
+
         }
 
         private void label1_Click(object sender, EventArgs e)
