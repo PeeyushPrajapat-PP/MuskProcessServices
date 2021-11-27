@@ -26,5 +26,17 @@ namespace MuskProcessServices
             DataSet dataset = dbConnection.getDataSet(queryExpression);
             return dataset;
         }
+
+        public class ComboboxItem
+        {
+            public string Text { get; set; }
+            public object Value { get; set; }
+
+            public override string ToString()
+            {
+                return Text;
+            }
+        }
+
     }
 }
