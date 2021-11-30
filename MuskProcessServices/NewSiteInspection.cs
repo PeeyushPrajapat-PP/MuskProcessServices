@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MuskProcessServices.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,7 +23,13 @@ namespace MuskProcessServices
 
         private void populateDropdownFields()
         {
+            // Sites dropdown items
+            siteDropdown.DataSource = MuskSite.getAllSites().Tables[0];
+            siteDropdown.ValueMember = "SiteID";
+            siteDropdown.DisplayMember = "Name";
 
+            // Default value
+            siteDropdown.SelectedIndex = 0;
         }
             private void Form3_Load(object sender, EventArgs e)
         {
@@ -110,6 +117,11 @@ namespace MuskProcessServices
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }
