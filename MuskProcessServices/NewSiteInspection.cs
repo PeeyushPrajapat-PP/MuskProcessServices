@@ -145,5 +145,26 @@ namespace MuskProcessServices
         {
 
         }
+
+        private void textBox11_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void createBtn_Click(object sender, EventArgs e)
+        {
+            SiteInspection siteInspection =
+                new SiteInspection(
+                    Convert.ToInt32(siteDropdown.SelectedValue),
+                    1, // edit to take currentUser.UserId value
+                    Convert.ToInt32(supervisorDropdown.SelectedValue),
+                    Convert.ToInt32(inspectorDropdown.SelectedValue),
+                    workAreaField.Text,
+                    jobDescriptionField.Text,
+                    typeField.Text
+                );
+
+            DBConnection.SaveSiteInspectionToDB("INSERT INTO SiteInspections(SiteID, CompletedBy, Supervisor, Inspector, WorkArea, JobDescription, Type, Status) VALUES(@SiteID, @CompletedBy, @Supervisor, @Inspector, @WorkArea, @JobDescription, @Type, @Status)", siteInspection);
+        }
     }
 }

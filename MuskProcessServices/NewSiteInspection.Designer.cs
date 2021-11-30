@@ -50,9 +50,9 @@ namespace MuskProcessServices
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.workAreaField = new System.Windows.Forms.TextBox();
+            this.jobDescriptionField = new System.Windows.Forms.TextBox();
+            this.typeField = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.section = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -63,6 +63,7 @@ namespace MuskProcessServices
             this.label9 = new System.Windows.Forms.Label();
             this.supervisorDropdown = new System.Windows.Forms.ComboBox();
             this.inspectorDropdown = new System.Windows.Forms.ComboBox();
+            this.createBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -298,29 +299,30 @@ namespace MuskProcessServices
             this.label8.TabIndex = 26;
             this.label8.Text = "Type";
             // 
-            // textBox11
+            // workAreaField
             // 
-            this.textBox11.Location = new System.Drawing.Point(187, 288);
-            this.textBox11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(121, 22);
-            this.textBox11.TabIndex = 29;
+            this.workAreaField.Location = new System.Drawing.Point(187, 288);
+            this.workAreaField.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.workAreaField.Name = "workAreaField";
+            this.workAreaField.Size = new System.Drawing.Size(121, 22);
+            this.workAreaField.TabIndex = 29;
+            this.workAreaField.TextChanged += new System.EventHandler(this.textBox11_TextChanged);
             // 
-            // textBox14
+            // jobDescriptionField
             // 
-            this.textBox14.Location = new System.Drawing.Point(187, 409);
-            this.textBox14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(121, 22);
-            this.textBox14.TabIndex = 31;
+            this.jobDescriptionField.Location = new System.Drawing.Point(187, 409);
+            this.jobDescriptionField.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.jobDescriptionField.Name = "jobDescriptionField";
+            this.jobDescriptionField.Size = new System.Drawing.Size(121, 22);
+            this.jobDescriptionField.TabIndex = 31;
             // 
-            // textBox15
+            // typeField
             // 
-            this.textBox15.Location = new System.Drawing.Point(166, 325);
-            this.textBox15.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(121, 22);
-            this.textBox15.TabIndex = 32;
+            this.typeField.Location = new System.Drawing.Point(166, 325);
+            this.typeField.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.typeField.Name = "typeField";
+            this.typeField.Size = new System.Drawing.Size(121, 22);
+            this.typeField.TabIndex = 32;
             // 
             // textBox4
             // 
@@ -357,10 +359,11 @@ namespace MuskProcessServices
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.createBtn);
             this.groupBox1.Controls.Add(this.inspectorDropdown);
             this.groupBox1.Controls.Add(this.supervisorDropdown);
             this.groupBox1.Controls.Add(this.siteDropdown);
-            this.groupBox1.Controls.Add(this.textBox15);
+            this.groupBox1.Controls.Add(this.typeField);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Location = new System.Drawing.Point(21, 126);
@@ -448,6 +451,19 @@ namespace MuskProcessServices
             this.inspectorDropdown.Size = new System.Drawing.Size(121, 24);
             this.inspectorDropdown.TabIndex = 27;
             // 
+            // createBtn
+            // 
+            this.createBtn.BackColor = System.Drawing.Color.Gainsboro;
+            this.createBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.createBtn.Location = new System.Drawing.Point(203, 377);
+            this.createBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.createBtn.Name = "createBtn";
+            this.createBtn.Size = new System.Drawing.Size(84, 28);
+            this.createBtn.TabIndex = 38;
+            this.createBtn.Text = "Create";
+            this.createBtn.UseVisualStyleBackColor = false;
+            this.createBtn.Click += new System.EventHandler(this.createBtn_Click);
+            // 
             // NewSiteInspection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -457,8 +473,8 @@ namespace MuskProcessServices
             this.Controls.Add(this.label9);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.textBox14);
-            this.Controls.Add(this.textBox11);
+            this.Controls.Add(this.jobDescriptionField);
+            this.Controls.Add(this.workAreaField);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -520,9 +536,9 @@ namespace MuskProcessServices
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox workAreaField;
+        private System.Windows.Forms.TextBox jobDescriptionField;
+        private System.Windows.Forms.TextBox typeField;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.ComboBox section;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -533,6 +549,7 @@ namespace MuskProcessServices
         private System.Windows.Forms.ComboBox siteDropdown;
         private System.Windows.Forms.ComboBox inspectorDropdown;
         private System.Windows.Forms.ComboBox supervisorDropdown;
+        private System.Windows.Forms.Button createBtn;
     }
     
 
