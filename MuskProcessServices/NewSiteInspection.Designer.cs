@@ -185,6 +185,7 @@ namespace MuskProcessServices
             this.textBox5.Size = new System.Drawing.Size(89, 15);
             this.textBox5.TabIndex = 12;
             this.textBox5.Text = "Intervention";
+            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // textBox6
             // 
@@ -399,10 +400,13 @@ namespace MuskProcessServices
             this.groupBox1.Size = new System.Drawing.Size(339, 469);
             this.groupBox1.TabIndex = 33;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Add New Site.."});
             this.comboBox1.Location = new System.Drawing.Point(166, 119);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 24);

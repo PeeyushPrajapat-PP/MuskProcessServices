@@ -16,21 +16,15 @@ namespace MuskProcessServices
         {
             InitializeComponent();
 
-            List<MuskSite> items = MuskSite.getAllSites();
-
-            foreach(MuskSite site in items)
-            {
-                SharedMethods.ComboboxItem item = new SharedMethods.ComboboxItem();
-                item.Text = site.Name;
-                item.Value = site.SiteId;
-
-                comboBox1.Items.Add(item);
-            }
-
-            comboBox1.SelectedIndex = 0;
+            // Get items from database and add them to dropdown list
+            populateDropdownFields();
         }
 
-        private void Form3_Load(object sender, EventArgs e)
+        private void populateDropdownFields()
+        {
+
+        }
+            private void Form3_Load(object sender, EventArgs e)
         {
 
         }
@@ -107,6 +101,16 @@ namespace MuskProcessServices
         {
 
             
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
