@@ -28,9 +28,24 @@ namespace MuskProcessServices
             siteDropdown.ValueMember = "SiteID";
             siteDropdown.DisplayMember = "Name";
 
+            // Users dropdown items (Supervisor and Inspector)
+            supervisorDropdown.DataSource = User.getAllUsers().Tables[0];
+            supervisorDropdown.ValueMember = "UserID";
+            supervisorDropdown.DisplayMember = "Fullname";
+
+            inspectorDropdown.DataSource = User.getAllUsers().Tables[0];
+            inspectorDropdown.ValueMember = "UserID";
+            inspectorDropdown.DisplayMember = "Fullname";
+
             // Default value
             siteDropdown.SelectedIndex = 0;
+            supervisorDropdown.SelectedIndex = 0;
+            inspectorDropdown.SelectedIndex = 0;
         }
+
+
+
+
             private void Form3_Load(object sender, EventArgs e)
         {
 
@@ -122,6 +137,11 @@ namespace MuskProcessServices
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged_2(object sender, EventArgs e)
         {
 
         }

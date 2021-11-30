@@ -61,8 +61,8 @@ namespace MuskProcessServices
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.supervisorDropdown = new System.Windows.Forms.ComboBox();
+            this.inspectorDropdown = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -357,8 +357,8 @@ namespace MuskProcessServices
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.inspectorDropdown);
+            this.groupBox1.Controls.Add(this.supervisorDropdown);
             this.groupBox1.Controls.Add(this.siteDropdown);
             this.groupBox1.Controls.Add(this.textBox15);
             this.groupBox1.Controls.Add(this.label7);
@@ -427,25 +427,26 @@ namespace MuskProcessServices
             this.label9.TabIndex = 37;
             this.label9.Text = "Add New Site Inspection";
             // 
-            // comboBox1
+            // supervisorDropdown
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.supervisorDropdown.FormattingEnabled = true;
+            this.supervisorDropdown.Items.AddRange(new object[] {
             "Add New Site.."});
-            this.comboBox1.Location = new System.Drawing.Point(166, 201);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 26;
+            this.supervisorDropdown.Location = new System.Drawing.Point(166, 201);
+            this.supervisorDropdown.Name = "supervisorDropdown";
+            this.supervisorDropdown.Size = new System.Drawing.Size(121, 24);
+            this.supervisorDropdown.TabIndex = 26;
+            this.supervisorDropdown.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_2);
             // 
-            // comboBox2
+            // inspectorDropdown
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.inspectorDropdown.FormattingEnabled = true;
+            this.inspectorDropdown.Items.AddRange(new object[] {
             "Add New Site.."});
-            this.comboBox2.Location = new System.Drawing.Point(166, 239);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
-            this.comboBox2.TabIndex = 27;
+            this.inspectorDropdown.Location = new System.Drawing.Point(166, 239);
+            this.inspectorDropdown.Name = "inspectorDropdown";
+            this.inspectorDropdown.Size = new System.Drawing.Size(121, 24);
+            this.inspectorDropdown.TabIndex = 27;
             // 
             // NewSiteInspection
             // 
@@ -530,8 +531,8 @@ namespace MuskProcessServices
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox siteDropdown;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox inspectorDropdown;
+        private System.Windows.Forms.ComboBox supervisorDropdown;
     }
     
 
