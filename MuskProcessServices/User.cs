@@ -37,6 +37,18 @@ namespace MuskProcessServices {
             _updatedAt = updatedAt;
             _createdAt = createdAt;
         }
+        public static DataSet getAllUsers()
+        {
+            // Select all users from database 
+            string queryExpression = String.Format("SELECT * FROM Users");
+            DataSet result = queryExpression.getDataSetFromDB();
+
+            // Creating a temporary column which we can use to display the whole name in the dropdown
+            result.Tables[0].Columns.Add("Fullname", typeof(string),
+                "Firstname + ' ' + Surname");
+
+            return result;
+        }
 
         // Login method - return true if user has been found and create new User object
         public static bool Login(string username, string password)

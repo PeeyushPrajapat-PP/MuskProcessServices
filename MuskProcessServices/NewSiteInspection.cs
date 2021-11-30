@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MuskProcessServices.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,9 +16,37 @@ namespace MuskProcessServices
         public NewSiteInspection()
         {
             InitializeComponent();
+
+            // Get items from database and add them to dropdown list
+            populateDropdownFields();
         }
 
-        private void Form3_Load(object sender, EventArgs e)
+        private void populateDropdownFields()
+        {
+            // Sites dropdown items
+            siteDropdown.DataSource = MuskSite.getAllSites().Tables[0];
+            siteDropdown.ValueMember = "SiteID";
+            siteDropdown.DisplayMember = "Name";
+
+            // Users dropdown items (Supervisor and Inspector)
+            supervisorDropdown.DataSource = User.getAllUsers().Tables[0];
+            supervisorDropdown.ValueMember = "UserID";
+            supervisorDropdown.DisplayMember = "Fullname";
+
+            inspectorDropdown.DataSource = User.getAllUsers().Tables[0];
+            inspectorDropdown.ValueMember = "UserID";
+            inspectorDropdown.DisplayMember = "Fullname";
+
+            // Default value
+            siteDropdown.SelectedIndex = 0;
+            supervisorDropdown.SelectedIndex = 0;
+            inspectorDropdown.SelectedIndex = 0;
+        }
+
+
+
+
+            private void Form3_Load(object sender, EventArgs e)
         {
 
         }
@@ -78,6 +107,64 @@ namespace MuskProcessServices
             if (obj != null)
                 MessageBox.Show(string.Format(".{0} - {1} selected", obj._subHeaderID, obj._subTitle, MessageBoxButtons.OK, MessageBoxIcon.Information));
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+            
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox11_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void createBtn_Click(object sender, EventArgs e)
+        {
+            SiteInspection siteInspection =
+                new SiteInspection(
+                    Convert.ToInt32(siteDropdown.SelectedValue),
+                    1, // edit to take currentUser.UserId value
+                    Convert.ToInt32(supervisorDropdown.SelectedValue),
+                    Convert.ToInt32(inspectorDropdown.SelectedValue),
+                    workAreaField.Text,
+                    jobDescriptionField.Text,
+                    typeField.Text
+                );
+
+            DBConnection.SaveSiteInspectionToDB("INSERT INTO SiteInspections(SiteID, CompletedBy, Supervisor, Inspector, WorkArea, JobDescription, Type, Status) VALUES(@SiteID, @CompletedBy, @Supervisor, @Inspector, @WorkArea, @JobDescription, @Type, @Status)", siteInspection);
         }
     }
 }
