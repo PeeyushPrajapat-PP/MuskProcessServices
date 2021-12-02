@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
+using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using MuskProcessServices.Models;
 
 namespace MuskProcessServices
 {
@@ -29,6 +26,7 @@ namespace MuskProcessServices
         private void ListOfInspections_Load(object sender, EventArgs e)
         {
 
+            PopulateFilterOptionFields();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -83,6 +81,29 @@ namespace MuskProcessServices
             int row2 = tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0));
             columnHeaderStyle.Text = "Date";
             tableLayoutPanel1.Controls.Add(columnHeaderStyle, 0, 0);*/
+        }
+        private void PopulateFilterOptionFields()
+        {
+            // Sites dropdown items
+            siteDropdown.DataSource = MuskSite.getAllSites().Tables[0];
+            siteDropdown.ValueMember = "SiteID";
+            siteDropdown.DisplayMember = "Name";
+            siteDropdown.SelectedItem = null;
+            siteDropdown.SelectedText = "-- Select --";
+
+            // EnteredBy dropdown items
+            enteredByDropdown.DataSource = User.getAllUsers().Tables[0];
+            enteredByDropdown.ValueMember = "UserID";
+            enteredByDropdown.DisplayMember = "Fullname";
+            enteredByDropdown.SelectedItem = null;
+            enteredByDropdown.SelectedText = "-- Select --";
+
+            // Months dropdown
+            string[] monthNames = DateTimeFormatInfo.CurrentInfo.MonthNames;
+            monthNames = monthNames.Where((item, index) => index != monthNames.Length - 1).ToArray();
+            monthDropdown.DataSource = monthNames;
+            monthDropdown.SelectedItem = null;
+            monthDropdown.SelectedText = "-- Select --";
         }
     }
 }
