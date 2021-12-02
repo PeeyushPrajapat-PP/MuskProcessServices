@@ -18,12 +18,12 @@ namespace MuskProcessServices
             InitializeComponent();
 
             // The code below is for testing purposes only
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDown;
-            comboBox1.Items.Add("Please select site");
-            comboBox1.Items.Add("Weetabix Burton");
-            comboBox1.Items.Add("Tyte and Lyle");
-            comboBox1.SelectedIndex = 0;
-            this.Controls.Add(comboBox1);
+            siteDropdown.DropDownStyle = ComboBoxStyle.DropDown;
+            siteDropdown.Items.Add("Please select site");
+            siteDropdown.Items.Add("Weetabix Burton");
+            siteDropdown.Items.Add("Tyte and Lyle");
+            siteDropdown.SelectedIndex = 0;
+            this.Controls.Add(siteDropdown);
         }
 
         private void ListOfInspections_Load(object sender, EventArgs e)

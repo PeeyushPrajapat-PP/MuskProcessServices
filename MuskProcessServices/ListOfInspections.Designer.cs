@@ -34,25 +34,25 @@ namespace MuskProcessServices
             this.backBtn = new System.Windows.Forms.Button();
             this.logoutBtn = new System.Windows.Forms.Button();
             this.welcomeText = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.siteDropdown = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.enteredByDropdown = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.monthDropdown = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.col_inspections = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_totalInterventions = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_enteredBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_inspector = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_workArea = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_site = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.searchBtn = new System.Windows.Forms.Button();
+            this.dgvListOfInspections = new System.Windows.Forms.DataGridView();
             this.col_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_site = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_workArea = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_inspector = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_enteredBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_totalInterventions = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_inspections = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListOfInspections)).BeginInit();
             this.SuspendLayout();
             // 
             // headingText
@@ -110,14 +110,14 @@ namespace MuskProcessServices
             this.welcomeText.UseMnemonic = false;
             this.welcomeText.Click += new System.EventHandler(this.label2_Click);
             // 
-            // comboBox1
+            // siteDropdown
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(31, 410);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(193, 24);
-            this.comboBox1.TabIndex = 6;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.siteDropdown.FormattingEnabled = true;
+            this.siteDropdown.Location = new System.Drawing.Point(31, 410);
+            this.siteDropdown.Name = "siteDropdown";
+            this.siteDropdown.Size = new System.Drawing.Size(193, 24);
+            this.siteDropdown.TabIndex = 6;
+            this.siteDropdown.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -125,7 +125,7 @@ namespace MuskProcessServices
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
             this.label1.Location = new System.Drawing.Point(33, 389);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 21);
+            this.label1.Size = new System.Drawing.Size(41, 17);
             this.label1.TabIndex = 7;
             this.label1.Text = "Site:";
             this.label1.UseMnemonic = false;
@@ -136,20 +136,20 @@ namespace MuskProcessServices
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
             this.label2.Location = new System.Drawing.Point(292, 389);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 21);
+            this.label2.Size = new System.Drawing.Size(92, 17);
             this.label2.TabIndex = 9;
             this.label2.Text = "Entered by:";
             this.label2.UseMnemonic = false;
             this.label2.Click += new System.EventHandler(this.label2_Click_1);
             // 
-            // comboBox2
+            // enteredByDropdown
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(290, 410);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(193, 24);
-            this.comboBox2.TabIndex = 8;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.enteredByDropdown.FormattingEnabled = true;
+            this.enteredByDropdown.Location = new System.Drawing.Point(290, 410);
+            this.enteredByDropdown.Name = "enteredByDropdown";
+            this.enteredByDropdown.Size = new System.Drawing.Size(193, 24);
+            this.enteredByDropdown.TabIndex = 8;
+            this.enteredByDropdown.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -157,18 +157,18 @@ namespace MuskProcessServices
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
             this.label3.Location = new System.Drawing.Point(548, 389);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 21);
+            this.label3.Size = new System.Drawing.Size(57, 17);
             this.label3.TabIndex = 11;
             this.label3.Text = "Month:";
             this.label3.UseMnemonic = false;
             // 
-            // comboBox3
+            // monthDropdown
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(546, 410);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(112, 24);
-            this.comboBox3.TabIndex = 10;
+            this.monthDropdown.FormattingEnabled = true;
+            this.monthDropdown.Location = new System.Drawing.Point(546, 410);
+            this.monthDropdown.Name = "monthDropdown";
+            this.monthDropdown.Size = new System.Drawing.Size(112, 24);
+            this.monthDropdown.TabIndex = 10;
             // 
             // comboBox4
             // 
@@ -185,26 +185,26 @@ namespace MuskProcessServices
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
             this.label4.Location = new System.Drawing.Point(685, 389);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 21);
+            this.label4.Size = new System.Drawing.Size(47, 17);
             this.label4.TabIndex = 13;
             this.label4.Text = "Year:";
             this.label4.UseMnemonic = false;
             // 
-            // button1
+            // searchBtn
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.button1.Location = new System.Drawing.Point(1273, 396);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 38);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.searchBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.searchBtn.Location = new System.Drawing.Point(1273, 396);
+            this.searchBtn.Name = "searchBtn";
+            this.searchBtn.Size = new System.Drawing.Size(125, 38);
+            this.searchBtn.TabIndex = 14;
+            this.searchBtn.Text = "Search";
+            this.searchBtn.UseVisualStyleBackColor = true;
+            this.searchBtn.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // dataGridView1
+            // dgvListOfInspections
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvListOfInspections.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListOfInspections.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.col_date,
             this.col_site,
             this.col_workArea,
@@ -212,54 +212,12 @@ namespace MuskProcessServices
             this.col_enteredBy,
             this.col_totalInterventions,
             this.col_inspections});
-            this.dataGridView1.Location = new System.Drawing.Point(31, 551);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1239, 72);
-            this.dataGridView1.TabIndex = 15;
-            // 
-            // col_inspections
-            // 
-            this.col_inspections.HeaderText = "Inspections";
-            this.col_inspections.MinimumWidth = 6;
-            this.col_inspections.Name = "col_inspections";
-            this.col_inspections.Width = 125;
-            // 
-            // col_totalInterventions
-            // 
-            this.col_totalInterventions.HeaderText = "Total Interventions";
-            this.col_totalInterventions.MinimumWidth = 6;
-            this.col_totalInterventions.Name = "col_totalInterventions";
-            this.col_totalInterventions.Width = 125;
-            // 
-            // col_enteredBy
-            // 
-            this.col_enteredBy.HeaderText = "Entered by";
-            this.col_enteredBy.MinimumWidth = 6;
-            this.col_enteredBy.Name = "col_enteredBy";
-            this.col_enteredBy.Width = 125;
-            // 
-            // col_inspector
-            // 
-            this.col_inspector.HeaderText = "Inspector";
-            this.col_inspector.MinimumWidth = 6;
-            this.col_inspector.Name = "col_inspector";
-            this.col_inspector.Width = 125;
-            // 
-            // col_workArea
-            // 
-            this.col_workArea.HeaderText = "Work Area";
-            this.col_workArea.MinimumWidth = 6;
-            this.col_workArea.Name = "col_workArea";
-            this.col_workArea.Width = 125;
-            // 
-            // col_site
-            // 
-            this.col_site.HeaderText = "Site";
-            this.col_site.MinimumWidth = 6;
-            this.col_site.Name = "col_site";
-            this.col_site.Width = 125;
+            this.dgvListOfInspections.Location = new System.Drawing.Point(31, 551);
+            this.dgvListOfInspections.Name = "dgvListOfInspections";
+            this.dgvListOfInspections.RowHeadersWidth = 51;
+            this.dgvListOfInspections.RowTemplate.Height = 24;
+            this.dgvListOfInspections.Size = new System.Drawing.Size(1239, 72);
+            this.dgvListOfInspections.TabIndex = 15;
             // 
             // col_date
             // 
@@ -268,21 +226,63 @@ namespace MuskProcessServices
             this.col_date.Name = "col_date";
             this.col_date.Width = 125;
             // 
+            // col_site
+            // 
+            this.col_site.HeaderText = "Site";
+            this.col_site.MinimumWidth = 6;
+            this.col_site.Name = "col_site";
+            this.col_site.Width = 125;
+            // 
+            // col_workArea
+            // 
+            this.col_workArea.HeaderText = "Work Area";
+            this.col_workArea.MinimumWidth = 6;
+            this.col_workArea.Name = "col_workArea";
+            this.col_workArea.Width = 125;
+            // 
+            // col_inspector
+            // 
+            this.col_inspector.HeaderText = "Inspector";
+            this.col_inspector.MinimumWidth = 6;
+            this.col_inspector.Name = "col_inspector";
+            this.col_inspector.Width = 125;
+            // 
+            // col_enteredBy
+            // 
+            this.col_enteredBy.HeaderText = "Entered by";
+            this.col_enteredBy.MinimumWidth = 6;
+            this.col_enteredBy.Name = "col_enteredBy";
+            this.col_enteredBy.Width = 125;
+            // 
+            // col_totalInterventions
+            // 
+            this.col_totalInterventions.HeaderText = "Total Interventions";
+            this.col_totalInterventions.MinimumWidth = 6;
+            this.col_totalInterventions.Name = "col_totalInterventions";
+            this.col_totalInterventions.Width = 125;
+            // 
+            // col_inspections
+            // 
+            this.col_inspections.HeaderText = "Inspections";
+            this.col_inspections.MinimumWidth = 6;
+            this.col_inspections.Name = "col_inspections";
+            this.col_inspections.Width = 125;
+            // 
             // ListOfInspections
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1471, 809);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.dgvListOfInspections);
+            this.Controls.Add(this.searchBtn);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.comboBox4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.monthDropdown);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.enteredByDropdown);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.siteDropdown);
             this.Controls.Add(this.welcomeText);
             this.Controls.Add(this.logoutBtn);
             this.Controls.Add(this.backBtn);
@@ -292,7 +292,7 @@ namespace MuskProcessServices
             this.Text = "ListOfInspections";
             this.Load += new System.EventHandler(this.ListOfInspections_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListOfInspections)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -305,16 +305,16 @@ namespace MuskProcessServices
         private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.Button logoutBtn;
         private System.Windows.Forms.Label welcomeText;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox siteDropdown;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox enteredByDropdown;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox monthDropdown;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button searchBtn;
+        private System.Windows.Forms.DataGridView dgvListOfInspections;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_date;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_site;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_workArea;
