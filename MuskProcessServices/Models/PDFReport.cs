@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 
@@ -95,7 +96,50 @@ namespace MuskProcessServices.Models
 
         private static void addInterventionsTable(Document document, int siteInspectionId, PdfPTable table, PdfPCell cell)
         {
+            // Get Headers and their SubHeaders
+            List<Header> headers = Header.getHeaders();
+            List<SubHeader> subHeaders = SubHeader.getSubHeaders();
 
+            // List<Intervention> interventions = Intervention.getInterventions(siteInspectionId);
+
+            // Tables headers
+            table = new PdfPTable(5);
+            table.TotalWidth = 550f;
+            table.LockedWidth = true;
+
+            table.AddCell(HeaderCell(""));
+            table.AddCell(HeaderCell("Interventions"));
+            table.AddCell(HeaderCell("Comment"));
+            table.AddCell(HeaderCell("Completed"));
+            table.AddCell(HeaderCell("Action Taken"));
+
+            foreach (Header header in headers)
+            {
+
+                cell = HeaderCell(header.Title);
+                cell.Colspan = 5;
+                table.AddCell(cell);
+
+                for (int i = 0; i < subHeaders.Count; i++)
+                {
+                    if (subHeaders[i].HeaderId == header.HeaderId)
+                    {
+                        table.AddCell(ValueCell($"{i + 1}. {subHeaders[i].SubTitle}"));
+                        
+                        // Replace below with actual intervention values 
+                        table.AddCell(ValueCell("0", true));
+                        table.AddCell(ValueCell(""));
+                        table.AddCell(ValueCell("", true));
+                        table.AddCell(ValueCell(""));
+                    }
+                }
+
+            }
+
+            // Creating some space before displaying the table
+            document.Add(new Paragraph(" "));
+            document.Add(new Paragraph(" "));
+            document.Add(table);
         }
 
 
