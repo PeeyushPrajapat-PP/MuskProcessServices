@@ -78,7 +78,7 @@ namespace MuskProcessServices
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<SubHeader> list = new List<SubHeader>();
+            /*List<SubHeader> list = new List<SubHeader>();
             list.Add(new SubHeader() { _subHeaderID = 1, _subTitle = "Working Standards" });
             list.Add(new SubHeader() { _subHeaderID = 2, _subTitle = "Quality" });
             list.Add(new SubHeader() { _subHeaderID = 3, _subTitle = "Site Rules" });
@@ -88,7 +88,7 @@ namespace MuskProcessServices
             list.Add(new SubHeader() { _subHeaderID = 7, _subTitle = "Other" });
             section.DataSource = list;
             section.ValueMember = "subHeaderID";
-            section.DisplayMember = "subTitle";
+            section.DisplayMember = "subTitle";*/
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -103,10 +103,10 @@ namespace MuskProcessServices
 
         private void section_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            SubHeader obj = section.SelectedItem as SubHeader;
+            /*SubHeader obj = section.SelectedItem as SubHeader;
             if (obj != null)
                 MessageBox.Show(string.Format(".{0} - {1} selected", obj._subHeaderID, obj._subTitle, MessageBoxButtons.OK, MessageBoxIcon.Information));
-
+*/
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
