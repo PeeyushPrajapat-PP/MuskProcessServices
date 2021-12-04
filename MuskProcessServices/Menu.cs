@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MuskProcessServices.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -38,6 +39,12 @@ namespace MuskProcessServices
         private void button3_Click(object sender, EventArgs e)
         {
             (new Monthly_Inspection_Report()).Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // for testing purposes only
+            PDFReport.generatePDF(3);
         }
     }
 }
