@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 
@@ -45,6 +40,7 @@ namespace MuskProcessServices.Models
             document.Add(title);
 
             // Site Inspection Summary Table (TO DO)
+            addSiteInspectionSummary(document, siteInspectionId, table, cell);
 
             // Interventions Table (TO DO)
 
@@ -52,6 +48,71 @@ namespace MuskProcessServices.Models
             document.Close();
             writer.Close();
             fs.Close();
+        }
+
+        private static void addSiteInspectionSummary(Document document, int siteInspectionId, PdfPTable table, PdfPCell cell)
+        {
+            //  Getting site inspection data - full names, site name, etc
+            SiteInspection selectedSite = SiteInspection.getSiteInspection(siteInspectionId);
+            MuskSite site = MuskSite.getSite(selectedSite.SiteId);
+            User completedBy = User.getUser(selectedSite.CompletedBy);
+            User inspector = User.getUser(selectedSite.Inspector);
+            User supervisor = User.getUser(selectedSite.Supervisor);
+
+            //Site Inspection summary details table
+            table = new PdfPTable(6);
+            table.TotalWidth = 550f;
+            table.LockedWidth = true;
+
+            //  1st row
+            table.AddCell(HeaderCell("Site:"));
+            table.AddCell(ValueCell(site.Name));
+            table.AddCell(HeaderCell("Completed By:"));
+            table.AddCell(ValueCell(completedBy.Firstname + " " + completedBy.Surname));
+            table.AddCell(HeaderCell("Date:"));
+            table.AddCell(ValueCell(".............."));
+
+            //  2nd row
+            table.AddCell(HeaderCell("Work Area:"));
+            table.AddCell(ValueCell(selectedSite.WorkArea));
+            table.AddCell(HeaderCell("Job Description:"));
+            cell = ValueCell(selectedSite.JobDescription);
+            cell.Colspan = 3;
+            table.AddCell(cell);
+
+            //  3rd row
+            table.AddCell(HeaderCell("Supervisor:"));
+            table.AddCell(ValueCell(supervisor.Firstname + " " + supervisor.Surname));
+            table.AddCell(HeaderCell("Inspector:"));
+            table.AddCell(ValueCell(inspector.Firstname + " " + inspector.Surname));
+            table.AddCell(HeaderCell("Type:"));
+            table.AddCell(ValueCell(selectedSite.Type));
+
+            // Creating some space before displaying the table
+            document.Add(new Paragraph(" "));
+            document.Add(new Paragraph(" "));
+            document.Add(table);
+        }
+
+
+        // Methods for styling Header cell and Value cell, in order to distinguish
+        private static PdfPCell HeaderCell(string title)
+        {
+            PdfPCell cell = new PdfPCell(new Phrase(title, FontFactory.GetFont("Arial", 12, Font.BOLD, BaseColor.BLACK)));
+            cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
+            cell.HorizontalAlignment = Element.ALIGN_LEFT;
+            cell.PaddingBottom = 7f;
+            cell.PaddingTop = 7f;
+            return cell;
+        }
+        private static PdfPCell ValueCell(string value, bool isHorizontalAlignmentCenter = false)
+        {
+            PdfPCell cell = new PdfPCell(new Phrase(value, FontFactory.GetFont("Arial", 10, Font.NORMAL, BaseColor.BLACK)));
+            cell.VerticalAlignment = PdfPCell.ALIGN_MIDDLE;
+            cell.HorizontalAlignment = isHorizontalAlignmentCenter ? Element.ALIGN_CENTER : Element.ALIGN_LEFT;
+            cell.PaddingBottom = 7f;
+            cell.PaddingTop = 7f;
+            return cell;
         }
     }
 }

@@ -44,7 +44,7 @@ namespace MuskProcessServices
         private void button2_Click(object sender, EventArgs e)
         {
             // for testing purposes only
-            PDFReport.generatePDF(3);
+            PDFReport.generatePDF(1);
         }
     }
 }

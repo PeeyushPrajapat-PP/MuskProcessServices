@@ -12,6 +12,7 @@ namespace MuskProcessServices {
 
     public class User
     {
+        private int _userId { get; set; }
         private string _username { get; set; }
         private string _password { get; set; }
         private string _firstname { get; set; }
@@ -26,8 +27,9 @@ namespace MuskProcessServices {
         }
 
         // Constructor that includes all properties;
-        public User(string username, string password, string firstname, string surname, string email, int role, DateTime? updatedAt = null, DateTime? createdAt = null)
+        public User(int userId, string username, string password, string firstname, string surname, string email, int role, DateTime? updatedAt = null, DateTime? createdAt = null)
         {
+            _userId = userId;
             _username = username;
             _password = password;
             _firstname = firstname;
@@ -48,6 +50,23 @@ namespace MuskProcessServices {
                 "Firstname + ' ' + Surname");
 
             return result;
+        }
+        public static User getUser(int userId)
+        {
+            string queryExpression = String.Format("SELECT * FROM Users WHERE UserID='{0}'", userId);
+            DataRow result = queryExpression.getDataSetFromDB().Tables[0].Rows[0];
+
+            User user = new User(
+                result.Field<int>("UserID"),
+                result.Field<string>("Username"),
+                result.Field<string>("Password"),
+                result.Field<string>("Firstname"),
+                result.Field<string>("Surname"),
+                result.Field<string>("Email"),
+                result.Field<int>("Role")
+                );
+
+            return user;
         }
 
         // Login method - return true if user has been found and create new User object
@@ -82,7 +101,10 @@ namespace MuskProcessServices {
             return user;
         }
 
-
+        public int UserId
+        {
+            get { return _userId; }
+        }
         public string Username
         {
             get { return _username; }
