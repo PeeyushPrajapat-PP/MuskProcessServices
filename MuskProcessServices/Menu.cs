@@ -43,8 +43,7 @@ namespace MuskProcessServices
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // for testing purposes only
-            PDFReport.generatePDF(1);
+            (new ListOfInspections()).Show();
         }
     }
 }
