@@ -10,9 +10,7 @@ namespace MuskProcessServices.Models
         {
             //  Attributes
             PdfPTable table = null;
-            Phrase phrase = null;
             PdfPCell cell = null;
-            BaseColor color = null;
 
             //  Getting the full path to the folder where we store our reports
             string reportsFolder = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), @"..\..\", "./Reports"));
@@ -39,10 +37,11 @@ namespace MuskProcessServices.Models
             title.Alignment = Element.ALIGN_CENTER;
             document.Add(title);
 
-            // Site Inspection Summary Table (TO DO)
-            addSiteInspectionSummary(document, siteInspectionId, table, cell);
+            // Site Inspection Summary Table
+            addSiteInspectionSummaryTable(document, siteInspectionId, table, cell);
 
             // Interventions Table (TO DO)
+            addInterventionsTable(document, siteInspectionId, table, cell);
 
             // Conclude 
             document.Close();
@@ -50,7 +49,7 @@ namespace MuskProcessServices.Models
             fs.Close();
         }
 
-        private static void addSiteInspectionSummary(Document document, int siteInspectionId, PdfPTable table, PdfPCell cell)
+        private static void addSiteInspectionSummaryTable(Document document, int siteInspectionId, PdfPTable table, PdfPCell cell)
         {
             //  Getting site inspection data - full names, site name, etc
             SiteInspection selectedSite = SiteInspection.getSiteInspection(siteInspectionId);
@@ -92,6 +91,11 @@ namespace MuskProcessServices.Models
             document.Add(new Paragraph(" "));
             document.Add(new Paragraph(" "));
             document.Add(table);
+        }
+
+        private static void addInterventionsTable(Document document, int siteInspectionId, PdfPTable table, PdfPCell cell)
+        {
+
         }
 
 
