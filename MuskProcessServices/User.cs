@@ -68,6 +68,13 @@ namespace MuskProcessServices {
             }
         }
 
+        public static void Logout()
+        {
+            SharedMethods.CurrentUser = null;
+
+            (new Login()).Show();
+        }
+
         private static User FormatDataRowToObject(DataRow datarow)
         {
             User user = new User();

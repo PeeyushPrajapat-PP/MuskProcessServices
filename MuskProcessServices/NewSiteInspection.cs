@@ -20,6 +20,17 @@ namespace MuskProcessServices
 
             // Get items from database and add them to dropdown list
             populateDropdownFields();
+
+            disableInterventionForm();
+        }
+        private void disableInterventionForm()
+        {
+            sectionDropdown.Enabled = false;
+            countField.Enabled = false;
+            commentField.Enabled = false;
+            completedCheckBox.Enabled = false;
+            actionTakenField.Enabled = false;
+            button3.Enabled = false;
         }
 
         private void populateDropdownFields()
@@ -185,11 +196,36 @@ namespace MuskProcessServices
                 );
 
             DBConnection.SaveSiteInspectionToDB("INSERT INTO SiteInspections(SiteID, CompletedBy, Supervisor, Inspector, WorkArea, JobDescription, Type, Status) VALUES(@SiteID, @CompletedBy, @Supervisor, @Inspector, @WorkArea, @JobDescription, @Type, @Status)", siteInspection);
+
+            // Enable Intervention details part of the form
+            sectionDropdown.Enabled = true;
+            countField.Enabled = true;
+            commentField.Enabled = true;
+            completedCheckBox.Enabled = true;
+            actionTakenField.Enabled = true;
+            button3.Enabled = true;
+            
+
+            // Disable Site Inspection details form
+            siteDropdown.Enabled = false;
+            workAreaField.Enabled = false;
+            supervisorDropdown.Enabled = false;
+            jobDescriptionField.Enabled = false;
+            inspectorDropdown.Enabled = false;
+            typeField.Enabled = false;
         }
 
-        private void Intervention_SelectedIndexChanged(object sender, EventArgs e)
+        private void backBtn_Click(object sender, EventArgs e)
         {
+            // If there are values in the fields ask for confirmation
+            this.Hide();
+            (new Menu()).Show();
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            User.Logout();
         }
     }
 }

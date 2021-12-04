@@ -45,7 +45,7 @@ namespace MuskProcessServices
             // button1
             // 
             this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(912, 56);
+            this.button1.Location = new System.Drawing.Point(918, 56);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 32);
             this.button1.TabIndex = 0;
@@ -82,6 +82,7 @@ namespace MuskProcessServices
             this.button2.TabIndex = 4;
             this.button2.Text = "back";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label2
             // 
@@ -89,7 +90,7 @@ namespace MuskProcessServices
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(275, 125);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(437, 39);
+            this.label2.Size = new System.Drawing.Size(420, 38);
             this.label2.TabIndex = 5;
             this.label2.Text = "Monthly Inspection Report";
             // 

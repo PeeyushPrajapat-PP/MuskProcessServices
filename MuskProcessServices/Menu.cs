@@ -33,16 +33,28 @@ namespace MuskProcessServices
         private void button1_Click(object sender, EventArgs e)
         {
             (new NewSiteInspection()).Show();
+            this.Hide();
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             (new Monthly_Inspection_Report()).Show();
+            this.Hide();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             (new ListOfInspections()).Show();
+            this.Hide();
+
+        }
+
+        private void logoutBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            User.Logout();
         }
     }
 }

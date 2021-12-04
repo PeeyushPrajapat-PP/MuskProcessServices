@@ -29,12 +29,14 @@ namespace MuskProcessServices
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            (new Menu()).Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            User.Logout();
         }
 
         private void label2_Click(object sender, EventArgs e)
