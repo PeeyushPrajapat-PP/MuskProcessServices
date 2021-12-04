@@ -83,6 +83,7 @@
     <Compile Include="ListOfInspections.Designer.cs">
       <DependentUpon>ListOfInspections.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Intervention.cs" />
     <Compile Include="Monthly Inspection Report.cs">
       <SubType>Form</SubType>
     </Compile>
