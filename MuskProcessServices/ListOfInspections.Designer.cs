@@ -40,8 +40,8 @@ namespace MuskProcessServices
             this.enteredByDropdown = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.monthDropdown = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.yearDropdown = new System.Windows.Forms.ComboBox();
+            this.yeardropdownLabel = new System.Windows.Forms.Label();
             this.searchBtn = new System.Windows.Forms.Button();
             this.dgvListOfInspections = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -162,26 +162,27 @@ namespace MuskProcessServices
             this.monthDropdown.Name = "monthDropdown";
             this.monthDropdown.Size = new System.Drawing.Size(112, 24);
             this.monthDropdown.TabIndex = 10;
+            this.monthDropdown.SelectedIndexChanged += new System.EventHandler(this.monthDropdown_SelectedIndexChanged);
             // 
-            // comboBox4
+            // yearDropdown
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(688, 410);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(72, 24);
-            this.comboBox4.TabIndex = 12;
-            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
+            this.yearDropdown.FormattingEnabled = true;
+            this.yearDropdown.Location = new System.Drawing.Point(688, 410);
+            this.yearDropdown.Name = "yearDropdown";
+            this.yearDropdown.Size = new System.Drawing.Size(72, 24);
+            this.yearDropdown.TabIndex = 12;
+            this.yearDropdown.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
             // 
-            // label4
+            // yeardropdownLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label4.Location = new System.Drawing.Point(685, 389);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 17);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Year:";
-            this.label4.UseMnemonic = false;
+            this.yeardropdownLabel.AutoSize = true;
+            this.yeardropdownLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.yeardropdownLabel.Location = new System.Drawing.Point(685, 389);
+            this.yeardropdownLabel.Name = "yeardropdownLabel";
+            this.yeardropdownLabel.Size = new System.Drawing.Size(47, 17);
+            this.yeardropdownLabel.TabIndex = 13;
+            this.yeardropdownLabel.Text = "Year:";
+            this.yeardropdownLabel.UseMnemonic = false;
             // 
             // searchBtn
             // 
@@ -192,7 +193,7 @@ namespace MuskProcessServices
             this.searchBtn.TabIndex = 14;
             this.searchBtn.Text = "Search";
             this.searchBtn.UseVisualStyleBackColor = true;
-            this.searchBtn.Click += new System.EventHandler(this.button1_Click_1);
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
             // 
             // dgvListOfInspections
             // 
@@ -211,8 +212,8 @@ namespace MuskProcessServices
             this.ClientSize = new System.Drawing.Size(1471, 809);
             this.Controls.Add(this.dgvListOfInspections);
             this.Controls.Add(this.searchBtn);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBox4);
+            this.Controls.Add(this.yeardropdownLabel);
+            this.Controls.Add(this.yearDropdown);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.monthDropdown);
             this.Controls.Add(this.label2);
@@ -247,8 +248,8 @@ namespace MuskProcessServices
         private System.Windows.Forms.ComboBox enteredByDropdown;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox monthDropdown;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox yearDropdown;
+        private System.Windows.Forms.Label yeardropdownLabel;
         private System.Windows.Forms.Button searchBtn;
         private System.Windows.Forms.DataGridView dgvListOfInspections;
     }

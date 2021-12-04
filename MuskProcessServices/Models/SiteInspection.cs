@@ -20,10 +20,10 @@ namespace MuskProcessServices
         private int _status;
 
         private DateTime? _submittedAt;
-        private DateTime? _createdAt;
+        private string _createdAt;
 
         // Constructors
-        public SiteInspection(int siteId, int completedBy, int supervisor, int inspector, string workArea, string jobDescription, string type)
+        public SiteInspection(int siteId, int completedBy, int supervisor, int inspector, string workArea, string jobDescription, string type, string createdAt)
         {
             _siteId = siteId;
             _completedBy = completedBy;
@@ -33,6 +33,7 @@ namespace MuskProcessServices
             _jobDescription = jobDescription;
             _type = type;
             _status = 0;
+            _createdAt =createdAt;
         }
 
         // Methods
@@ -72,6 +73,9 @@ namespace MuskProcessServices
         {
             get { return _status; }
         }
-
+        public string CreatedAt
+        {
+            get { return _createdAt; }
+        }
     }
 }

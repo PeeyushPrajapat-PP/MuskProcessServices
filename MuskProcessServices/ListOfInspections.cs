@@ -57,11 +57,6 @@ namespace MuskProcessServices
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -97,6 +92,24 @@ namespace MuskProcessServices
             monthDropdown.DataSource = monthNames;
             monthDropdown.SelectedItem = null;
             monthDropdown.SelectedText = "-- Select --";
+
+            // Year dropdown
+            
+            var currentYear = DateTime.Today.Year;
+            for (int i = 10; i >= 0; i--)
+            {
+                // Now just add an entry that's the current year minus the counter
+                yearDropdown.Items.Add((currentYear - i).ToString());
+            }
+            yearDropdown.SelectedItem = null;
+            yearDropdown.SelectedText = "-- Select --";
+
+
+
+
+
+
+
         }
         private void GetSiteInspectionsFromDB(string sqlCondition = null)
         {
@@ -167,6 +180,11 @@ namespace MuskProcessServices
             {
                 MessageBox.Show("No conditions");
             }
+        }
+
+        private void monthDropdown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

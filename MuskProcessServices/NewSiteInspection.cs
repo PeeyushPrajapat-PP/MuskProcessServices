@@ -161,7 +161,8 @@ namespace MuskProcessServices
                     Convert.ToInt32(inspectorDropdown.SelectedValue),
                     workAreaField.Text,
                     jobDescriptionField.Text,
-                    typeField.Text
+                    typeField.Text,
+                    Convert.ToString(DateTime.Now)
                 );
 
             DBConnection.SaveSiteInspectionToDB("INSERT INTO SiteInspections(SiteID, CompletedBy, Supervisor, Inspector, WorkArea, JobDescription, Type, Status) VALUES(@SiteID, @CompletedBy, @Supervisor, @Inspector, @WorkArea, @JobDescription, @Type, @Status)", siteInspection);
