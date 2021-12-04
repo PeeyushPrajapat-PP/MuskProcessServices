@@ -44,13 +44,6 @@ namespace MuskProcessServices
             this.label4 = new System.Windows.Forms.Label();
             this.searchBtn = new System.Windows.Forms.Button();
             this.dgvListOfInspections = new System.Windows.Forms.DataGridView();
-            this.col_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_site = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_workArea = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_inspector = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_enteredBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_totalInterventions = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_inspections = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListOfInspections)).BeginInit();
             this.SuspendLayout();
@@ -204,69 +197,12 @@ namespace MuskProcessServices
             // dgvListOfInspections
             // 
             this.dgvListOfInspections.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListOfInspections.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.col_date,
-            this.col_site,
-            this.col_workArea,
-            this.col_inspector,
-            this.col_enteredBy,
-            this.col_totalInterventions,
-            this.col_inspections});
-            this.dgvListOfInspections.Location = new System.Drawing.Point(31, 551);
+            this.dgvListOfInspections.Location = new System.Drawing.Point(31, 523);
             this.dgvListOfInspections.Name = "dgvListOfInspections";
             this.dgvListOfInspections.RowHeadersWidth = 51;
             this.dgvListOfInspections.RowTemplate.Height = 24;
-            this.dgvListOfInspections.Size = new System.Drawing.Size(1239, 72);
+            this.dgvListOfInspections.Size = new System.Drawing.Size(1169, 150);
             this.dgvListOfInspections.TabIndex = 15;
-            // 
-            // col_date
-            // 
-            this.col_date.HeaderText = "Date";
-            this.col_date.MinimumWidth = 6;
-            this.col_date.Name = "col_date";
-            this.col_date.Width = 125;
-            // 
-            // col_site
-            // 
-            this.col_site.HeaderText = "Site";
-            this.col_site.MinimumWidth = 6;
-            this.col_site.Name = "col_site";
-            this.col_site.Width = 125;
-            // 
-            // col_workArea
-            // 
-            this.col_workArea.HeaderText = "Work Area";
-            this.col_workArea.MinimumWidth = 6;
-            this.col_workArea.Name = "col_workArea";
-            this.col_workArea.Width = 125;
-            // 
-            // col_inspector
-            // 
-            this.col_inspector.HeaderText = "Inspector";
-            this.col_inspector.MinimumWidth = 6;
-            this.col_inspector.Name = "col_inspector";
-            this.col_inspector.Width = 125;
-            // 
-            // col_enteredBy
-            // 
-            this.col_enteredBy.HeaderText = "Entered by";
-            this.col_enteredBy.MinimumWidth = 6;
-            this.col_enteredBy.Name = "col_enteredBy";
-            this.col_enteredBy.Width = 125;
-            // 
-            // col_totalInterventions
-            // 
-            this.col_totalInterventions.HeaderText = "Total Interventions";
-            this.col_totalInterventions.MinimumWidth = 6;
-            this.col_totalInterventions.Name = "col_totalInterventions";
-            this.col_totalInterventions.Width = 125;
-            // 
-            // col_inspections
-            // 
-            this.col_inspections.HeaderText = "Inspections";
-            this.col_inspections.MinimumWidth = 6;
-            this.col_inspections.Name = "col_inspections";
-            this.col_inspections.Width = 125;
             // 
             // ListOfInspections
             // 
@@ -315,12 +251,5 @@ namespace MuskProcessServices
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button searchBtn;
         private System.Windows.Forms.DataGridView dgvListOfInspections;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_site;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_workArea;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_inspector;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_enteredBy;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_totalInterventions;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_inspections;
     }
 }

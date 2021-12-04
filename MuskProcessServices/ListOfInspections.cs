@@ -14,14 +14,6 @@ namespace MuskProcessServices
         {
             // TODO: Rename variables accordingly.
             InitializeComponent();
-
-            // The code below is for testing purposes only
-            siteDropdown.DropDownStyle = ComboBoxStyle.DropDown;
-            siteDropdown.Items.Add("Please select site");
-            siteDropdown.Items.Add("Weetabix Burton");
-            siteDropdown.Items.Add("Tyte and Lyle");
-            siteDropdown.SelectedIndex = 0;
-            this.Controls.Add(siteDropdown);
         }
 
         private void ListOfInspections_Load(object sender, EventArgs e)
