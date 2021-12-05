@@ -24,7 +24,6 @@ namespace MuskProcessServices
 
             if (result)
             {
-                MessageBox.Show("Welcome back!");
                 (new Menu()).Show();
                 this.Hide();
             }

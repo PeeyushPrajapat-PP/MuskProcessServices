@@ -116,6 +116,7 @@ namespace MuskProcessServices.Models
 
             foreach (Header header in headers)
             {
+                interventionsBySection[header.Title] = 0;
 
                 cell = HeaderCell(header.Title);
                 cell.Colspan = 5;

@@ -115,7 +115,6 @@ namespace MuskProcessServices
             this.textBox5.Size = new System.Drawing.Size(89, 15);
             this.textBox5.TabIndex = 12;
             this.textBox5.Text = "Intervention";
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // textBox6
             // 
@@ -138,7 +137,6 @@ namespace MuskProcessServices
             this.textBox8.Size = new System.Drawing.Size(89, 15);
             this.textBox8.TabIndex = 15;
             this.textBox8.Text = "Comment";
-            this.textBox8.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // label2
             // 
@@ -149,7 +147,6 @@ namespace MuskProcessServices
             this.label2.Size = new System.Drawing.Size(32, 17);
             this.label2.TabIndex = 20;
             this.label2.Text = "Site";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -209,7 +206,6 @@ namespace MuskProcessServices
             this.workAreaField.Name = "workAreaField";
             this.workAreaField.Size = new System.Drawing.Size(121, 22);
             this.workAreaField.TabIndex = 29;
-            this.workAreaField.TextChanged += new System.EventHandler(this.textBox11_TextChanged);
             // 
             // jobDescriptionField
             // 
@@ -237,7 +233,6 @@ namespace MuskProcessServices
             this.textBox4.Size = new System.Drawing.Size(89, 15);
             this.textBox4.TabIndex = 11;
             this.textBox4.Text = "Section";
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // sectionDropdown
             // 
@@ -256,7 +251,6 @@ namespace MuskProcessServices
             this.sectionDropdown.Name = "sectionDropdown";
             this.sectionDropdown.Size = new System.Drawing.Size(121, 24);
             this.sectionDropdown.TabIndex = 17;
-            this.sectionDropdown.SelectionChangeCommitted += new System.EventHandler(this.section_SelectionChangeCommitted);
             // 
             // groupBox1
             // 
@@ -275,7 +269,6 @@ namespace MuskProcessServices
             this.groupBox1.Size = new System.Drawing.Size(339, 469);
             this.groupBox1.TabIndex = 33;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // createBtn
             // 
@@ -309,7 +302,6 @@ namespace MuskProcessServices
             this.supervisorDropdown.Name = "supervisorDropdown";
             this.supervisorDropdown.Size = new System.Drawing.Size(121, 24);
             this.supervisorDropdown.TabIndex = 26;
-            this.supervisorDropdown.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_2);
             // 
             // siteDropdown
             // 
@@ -320,7 +312,6 @@ namespace MuskProcessServices
             this.siteDropdown.Name = "siteDropdown";
             this.siteDropdown.Size = new System.Drawing.Size(121, 24);
             this.siteDropdown.TabIndex = 0;
-            this.siteDropdown.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
             // groupBox2
             // 
@@ -334,7 +325,6 @@ namespace MuskProcessServices
             this.groupBox2.Size = new System.Drawing.Size(770, 469);
             this.groupBox2.TabIndex = 34;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // finishBtn
             // 

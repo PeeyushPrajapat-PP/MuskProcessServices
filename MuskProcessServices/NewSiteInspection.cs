@@ -1,12 +1,7 @@
 ﻿using MuskProcessServices.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MuskProcessServices
@@ -62,15 +57,7 @@ namespace MuskProcessServices
             inspectorDropdown.SelectedIndex = 0;
         }
 
-
-
-
         private void Form3_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
         {
 
         }
@@ -118,79 +105,9 @@ namespace MuskProcessServices
             }
 
             MessageBox.Show("Successfully added to the DB.");
+
             this.Hide();
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox8_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox9_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void section_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            /*SubHeader obj = section.SelectedItem as SubHeader;
-            if (obj != null)
-                MessageBox.Show(string.Format(".{0} - {1} selected", obj._subHeaderID, obj._subTitle, MessageBoxButtons.OK, MessageBoxIcon.Information));
-*/
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-            
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged_2(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox11_TextChanged(object sender, EventArgs e)
-        {
-
+            (new Menu()).Show();
         }
 
         private void createBtn_Click(object sender, EventArgs e)

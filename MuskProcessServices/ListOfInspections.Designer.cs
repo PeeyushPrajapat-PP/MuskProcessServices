@@ -58,7 +58,6 @@ namespace MuskProcessServices
             this.headingText.Size = new System.Drawing.Size(316, 42);
             this.headingText.TabIndex = 0;
             this.headingText.Text = "List of Inspections";
-            this.headingText.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox1
             // 
@@ -102,7 +101,6 @@ namespace MuskProcessServices
             this.welcomeText.TabIndex = 5;
             this.welcomeText.Text = "Welcome, John Doe";
             this.welcomeText.UseMnemonic = false;
-            this.welcomeText.Click += new System.EventHandler(this.label2_Click);
             // 
             // siteDropdown
             // 
@@ -111,7 +109,6 @@ namespace MuskProcessServices
             this.siteDropdown.Name = "siteDropdown";
             this.siteDropdown.Size = new System.Drawing.Size(193, 24);
             this.siteDropdown.TabIndex = 6;
-            this.siteDropdown.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -134,7 +131,6 @@ namespace MuskProcessServices
             this.label2.TabIndex = 9;
             this.label2.Text = "Entered by:";
             this.label2.UseMnemonic = false;
-            this.label2.Click += new System.EventHandler(this.label2_Click_1);
             // 
             // enteredByDropdown
             // 
@@ -143,7 +139,6 @@ namespace MuskProcessServices
             this.enteredByDropdown.Name = "enteredByDropdown";
             this.enteredByDropdown.Size = new System.Drawing.Size(193, 24);
             this.enteredByDropdown.TabIndex = 8;
-            this.enteredByDropdown.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -163,7 +158,6 @@ namespace MuskProcessServices
             this.monthDropdown.Name = "monthDropdown";
             this.monthDropdown.Size = new System.Drawing.Size(112, 24);
             this.monthDropdown.TabIndex = 10;
-            this.monthDropdown.SelectedIndexChanged += new System.EventHandler(this.monthDropdown_SelectedIndexChanged);
             // 
             // yearDropdown
             // 
@@ -172,7 +166,6 @@ namespace MuskProcessServices
             this.yearDropdown.Name = "yearDropdown";
             this.yearDropdown.Size = new System.Drawing.Size(72, 24);
             this.yearDropdown.TabIndex = 12;
-            this.yearDropdown.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
             // 
             // yeardropdownLabel
             // 

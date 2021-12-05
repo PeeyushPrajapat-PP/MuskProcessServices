@@ -24,11 +24,6 @@ namespace MuskProcessServices
             PopulateFilterOptionFields();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -41,39 +36,6 @@ namespace MuskProcessServices
             User.Logout();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-            //tableLayoutPanel1.Controls.Add(new Label() { Text = "Type:", Anchor = AnchorStyles.Left, AutoSize = true }, 0, 0);
-            /*var columnHeaderStyle = new TextBox();
-            int row2 = tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0));
-            columnHeaderStyle.Text = "Date";
-            tableLayoutPanel1.Controls.Add(columnHeaderStyle, 0, 0);*/
-        }
         private void PopulateFilterOptionFields()
         {
             // Sites dropdown items
@@ -107,14 +69,8 @@ namespace MuskProcessServices
             }
             yearDropdown.SelectedItem = null;
             yearDropdown.SelectedText = "-- Select --";
-
-
-
-
-
-
-
         }
+
         private void GetSiteInspectionsFromDB(string sqlCondition = null)
         {
             string finalQuery = String.Format("");
@@ -130,8 +86,6 @@ namespace MuskProcessServices
                 "GROUP BY SiteInspections.SiteInspectionID, SiteInspections.CreatedAt, Sites.Name, SiteInspections.WorkArea, users1.Firstname, users1.Surname, users2.Firstname, users2.Surname " +
                 "ORDER BY SiteInspections.SiteInspectionID"
                 );
-
-
 
 
 
@@ -183,11 +137,6 @@ namespace MuskProcessServices
             {
                 MessageBox.Show("No conditions");
             }
-        }
-
-        private void monthDropdown_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void generatePdfBtn4_Click(object sender, EventArgs e)
