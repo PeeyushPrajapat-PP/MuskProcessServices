@@ -46,7 +46,6 @@ namespace MuskProcessServices
             _jobDescription = jobDescription;
             _type = type;
             _status = 0;
-            _createdAt =createdAt;
         }
 
         // Methods

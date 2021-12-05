@@ -99,8 +99,7 @@ namespace MuskProcessServices.Models
             // Get Headers and their SubHeaders
             List<Header> headers = Header.getHeaders();
             List<SubHeader> subHeaders = SubHeader.getSubHeaders();
-
-            // List<Intervention> interventions = Intervention.getInterventions(siteInspectionId);
+            List<Intervention> interventions = Intervention.getInterventions(siteInspectionId);
 
             // Tables headers
             table = new PdfPTable(5);
@@ -113,6 +112,8 @@ namespace MuskProcessServices.Models
             table.AddCell(HeaderCell("Completed"));
             table.AddCell(HeaderCell("Action Taken"));
 
+            Dictionary<string, int> interventionsBySection = new Dictionary<string, int>();
+
             foreach (Header header in headers)
             {
 
@@ -124,13 +125,33 @@ namespace MuskProcessServices.Models
                 {
                     if (subHeaders[i].HeaderId == header.HeaderId)
                     {
+                        bool encountered = false;
                         table.AddCell(ValueCell($"{i + 1}. {subHeaders[i].SubTitle}"));
-                        
-                        // Replace below with actual intervention values 
-                        table.AddCell(ValueCell("0", true));
-                        table.AddCell(ValueCell(""));
-                        table.AddCell(ValueCell("", true));
-                        table.AddCell(ValueCell(""));
+
+                        for (int j = 0; j < interventions.Count; j++)
+                        {
+
+                            if (interventions[j].SubHeaderID == subHeaders[i].SubHeaderId)
+                            {
+                                interventionsBySection[header.Title] += interventions[j].Count;
+
+                                encountered = true;
+                                string boolToWord = interventions[j].Completed ? "Yes" : "No";
+
+                                table.AddCell(ValueCell($"{interventions[j].Count}", true));
+                                table.AddCell(ValueCell($"{interventions[j].Comment}"));
+                                table.AddCell(ValueCell($"{boolToWord}", true));
+                                table.AddCell(ValueCell($"{interventions[j].ActionTaken}"));
+                            }
+                        }
+
+                        if (!encountered)
+                        {
+                            table.AddCell(ValueCell("0", true));
+                            table.AddCell(ValueCell(""));
+                            table.AddCell(ValueCell("", true));
+                            table.AddCell(ValueCell(""));
+                        }
                     }
                 }
 
