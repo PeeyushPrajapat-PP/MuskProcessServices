@@ -13,12 +13,24 @@ namespace MuskProcessServices
 {
     public partial class NewSiteInspection : Form
     {
+        private List<Intervention> interventions = new List<Intervention>();
         public NewSiteInspection()
         {
             InitializeComponent();
 
             // Get items from database and add them to dropdown list
             populateDropdownFields();
+
+            disableInterventionForm();
+        }
+        private void disableInterventionForm()
+        {
+            sectionDropdown.Enabled = false;
+            countField.Enabled = false;
+            commentField.Enabled = false;
+            completedCheckBox.Enabled = false;
+            actionTakenField.Enabled = false;
+            button3.Enabled = false;
         }
 
         private void populateDropdownFields()
@@ -37,6 +49,12 @@ namespace MuskProcessServices
             inspectorDropdown.ValueMember = "UserID";
             inspectorDropdown.DisplayMember = "Fullname";
 
+            //SubHeader dropdown items
+            sectionDropdown.DataSource = SubHeader.getAllSubHeaders().Tables[0];
+            sectionDropdown.ValueMember = "SubHeaderID";
+            sectionDropdown.DisplayMember = "SubTitle";
+            sectionDropdown.SelectedIndex = 0;
+
             // Default value
             siteDropdown.SelectedIndex = 0;
             supervisorDropdown.SelectedIndex = 0;
@@ -46,7 +64,7 @@ namespace MuskProcessServices
 
 
 
-            private void Form3_Load(object sender, EventArgs e)
+        private void Form3_Load(object sender, EventArgs e)
         {
 
         }
@@ -58,7 +76,38 @@ namespace MuskProcessServices
 
         private void button3_Click(object sender, EventArgs e)
         {
+            // Get value from form and add them to List<Interventions>
+            interventions.Add(new Intervention(sectionDropdown.SelectedIndex,
+                Int32.Parse(countField.Text),
+                commentField.Text,
+                completedCheckBox.Checked,
+                actionTakenField.Text)
+                );
 
+            // Clear out the form for new interventions to be added
+            sectionDropdown.SelectedIndex = 0;
+            countField.Text = "";
+            commentField.Text = "";
+            completedCheckBox.Checked = false;
+            actionTakenField.Text = "";
+        }
+
+        private void finishBtn_Click(object sender, EventArgs e)
+        {
+            // Get SiteInspectionId from the DB
+            string queryExpression = String.Format("SELECT * FROM SiteInspections");
+            DataSet result = queryExpression.getDataSetFromDB();
+
+            int siteInspectionId = result.Tables[0].Rows[0].Field<int>("SiteInspectionID") + 1;
+
+            // add interventions to DB
+            foreach (Intervention item in interventions)
+            {
+                Intervention.SaveToDB("INSERT INTO Interventions(SiteInspectionID, SubHeaderID, Count, Comment, Completed, ActionTaken) VALUES(@SiteInspectionID, @SubHeaderID, @Count, @Comment, @Completed, @ActionTaken)", item, siteInspectionId);
+            }
+
+            MessageBox.Show("Successfully added to the DB.");
+            this.Hide();
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
@@ -76,25 +125,7 @@ namespace MuskProcessServices
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            /*List<SubHeader> list = new List<SubHeader>();
-            list.Add(new SubHeader() { _subHeaderID = 1, _subTitle = "Working Standards" });
-            list.Add(new SubHeader() { _subHeaderID = 2, _subTitle = "Quality" });
-            list.Add(new SubHeader() { _subHeaderID = 3, _subTitle = "Site Rules" });
-            list.Add(new SubHeader() { _subHeaderID = 4, _subTitle = "Environmental" });
-            list.Add(new SubHeader() { _subHeaderID = 5, _subTitle = "Protection of Individuals" });
-            list.Add(new SubHeader() { _subHeaderID = 6, _subTitle = "Equipment" });
-            list.Add(new SubHeader() { _subHeaderID = 7, _subTitle = "Other" });
-            section.DataSource = list;
-            section.ValueMember = "subHeaderID";
-            section.DisplayMember = "subTitle";*/
-        }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void groupBox2_Enter(object sender, EventArgs e)
         {
@@ -161,10 +192,41 @@ namespace MuskProcessServices
                     Convert.ToInt32(inspectorDropdown.SelectedValue),
                     workAreaField.Text,
                     jobDescriptionField.Text,
-                    typeField.Text
+                    typeField.Text,
+                    Convert.ToString(DateTime.Now)
                 );
 
             DBConnection.SaveSiteInspectionToDB("INSERT INTO SiteInspections(SiteID, CompletedBy, Supervisor, Inspector, WorkArea, JobDescription, Type, Status) VALUES(@SiteID, @CompletedBy, @Supervisor, @Inspector, @WorkArea, @JobDescription, @Type, @Status)", siteInspection);
+
+            // Enable Intervention details part of the form
+            sectionDropdown.Enabled = true;
+            countField.Enabled = true;
+            commentField.Enabled = true;
+            completedCheckBox.Enabled = true;
+            actionTakenField.Enabled = true;
+            button3.Enabled = true;
+            
+
+            // Disable Site Inspection details form
+            siteDropdown.Enabled = false;
+            workAreaField.Enabled = false;
+            supervisorDropdown.Enabled = false;
+            jobDescriptionField.Enabled = false;
+            inspectorDropdown.Enabled = false;
+            typeField.Enabled = false;
+        }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            // If there are values in the fields ask for confirmation
+            this.Hide();
+            (new Menu()).Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            User.Logout();
         }
     }
 }
