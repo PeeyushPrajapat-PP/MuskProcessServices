@@ -32,6 +32,19 @@ namespace MuskProcessServices.Models
             return result;
         }
 
+        public static MuskSite getSite(int siteId)
+        {
+            string queryExpression = String.Format("SELECT * FROM Sites WHERE SiteID='{0}'", siteId);
+            DataRow result = queryExpression.getDataSetFromDB().Tables[0].Rows[0];
+
+            MuskSite site = new MuskSite(
+                result.Field<int>("SiteID"),
+                result.Field<string>("Name")
+                );
+
+            return site;
+        }
+
         public int SiteId
         {
             get { return _siteId; }

@@ -23,14 +23,37 @@ namespace MuskProcessServices.Models
 
         public Intervention() { }
 
-        public Intervention(int subHeaderId, int count, string comment, bool completed, string actionTaken)
+        public Intervention(int siteInspectionId, int subHeaderId, int count, string comment, bool completed, string actionTaken)
         {
-            _siteInspectionId = 3;
-            _subHeaderId = 2;
+            _siteInspectionId = siteInspectionId;
+            _subHeaderId = subHeaderId;
             _count = count;
             _comment = comment;
             _completed = completed;
             _actionTaken = actionTaken;
+        }
+
+        public static List<Intervention> getInterventions(int siteInspectionId)
+        {
+            string queryExpression = String.Format("SELECT * FROM Interventions WHERE SiteInspectionID='{0}'", siteInspectionId);
+            DataTable result = queryExpression.getDataSetFromDB().Tables[0];
+            List<Intervention> interventions = new List<Intervention>();
+
+            foreach (DataRow row in result.Rows)
+            {
+                Intervention intervention = new Intervention(
+                    row.Field<int>("SiteInspectionID"),
+                    row.Field<int>("SubHeaderID"),
+                    row.Field<int>("Count"),
+                    row.Field<string>("Comment"),
+                    Convert.ToBoolean(row.Field<int>("Completed")),
+                    row.Field<string>("ActionTaken")
+                    );
+
+                interventions.Add(intervention);
+            }
+
+            return interventions;
         }
 
         public static void SaveToDB(string sqlQuery, Intervention item, int siteInspectionId)

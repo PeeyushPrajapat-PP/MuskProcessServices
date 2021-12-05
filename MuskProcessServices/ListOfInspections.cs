@@ -19,6 +19,8 @@ namespace MuskProcessServices
         private void ListOfInspections_Load(object sender, EventArgs e)
         {
             GetSiteInspectionsFromDB();
+            dgvListOfInspections.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvListOfInspections.ReadOnly = true;
             PopulateFilterOptionFields();
         }
 
@@ -173,7 +175,6 @@ namespace MuskProcessServices
 
             if (fieldsValues.Count > 0)
             {
-                MessageBox.Show(fieldsValues.Count.ToString());
                 string combineConditions = String.Join(" AND ", fieldsValues.ToArray());
                 sqlCondition = String.Join(" ", sqlCondition, combineConditions);
                 GetSiteInspectionsFromDB(sqlCondition);
@@ -187,6 +188,24 @@ namespace MuskProcessServices
         private void monthDropdown_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void generatePdfBtn4_Click(object sender, EventArgs e)
+        {
+            // Verify a row has been selected, otherwise show an Error message
+            if (dgvListOfInspections.SelectedCells.Count > 0)
+            {
+                int rowIndex = dgvListOfInspections.SelectedCells[0].RowIndex;
+                DataGridViewRow selectedRow = dgvListOfInspections.Rows[rowIndex];
+
+                int cellValue = Convert.ToInt32(selectedRow.Cells["ID"].Value);
+
+                // generate the PDF
+                PDFReport.generatePDF(cellValue);
+            } else
+            {
+                MessageBox.Show("You need to select a row.");
+            }
         }
     }
 }

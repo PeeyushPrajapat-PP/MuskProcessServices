@@ -44,6 +44,7 @@ namespace MuskProcessServices
             this.yeardropdownLabel = new System.Windows.Forms.Label();
             this.searchBtn = new System.Windows.Forms.Button();
             this.dgvListOfInspections = new System.Windows.Forms.DataGridView();
+            this.generatePdfBtn4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListOfInspections)).BeginInit();
             this.SuspendLayout();
@@ -205,11 +206,23 @@ namespace MuskProcessServices
             this.dgvListOfInspections.Size = new System.Drawing.Size(1169, 150);
             this.dgvListOfInspections.TabIndex = 15;
             // 
+            // generatePdfBtn4
+            // 
+            this.generatePdfBtn4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.generatePdfBtn4.Location = new System.Drawing.Point(1273, 523);
+            this.generatePdfBtn4.Name = "generatePdfBtn4";
+            this.generatePdfBtn4.Size = new System.Drawing.Size(125, 38);
+            this.generatePdfBtn4.TabIndex = 16;
+            this.generatePdfBtn4.Text = "View PDF";
+            this.generatePdfBtn4.UseVisualStyleBackColor = true;
+            this.generatePdfBtn4.Click += new System.EventHandler(this.generatePdfBtn4_Click);
+            // 
             // ListOfInspections
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1471, 809);
+            this.ClientSize = new System.Drawing.Size(1550, 835);
+            this.Controls.Add(this.generatePdfBtn4);
             this.Controls.Add(this.dgvListOfInspections);
             this.Controls.Add(this.searchBtn);
             this.Controls.Add(this.yeardropdownLabel);
@@ -252,5 +265,6 @@ namespace MuskProcessServices
         private System.Windows.Forms.Label yeardropdownLabel;
         private System.Windows.Forms.Button searchBtn;
         private System.Windows.Forms.DataGridView dgvListOfInspections;
+        private System.Windows.Forms.Button generatePdfBtn4;
     }
 }

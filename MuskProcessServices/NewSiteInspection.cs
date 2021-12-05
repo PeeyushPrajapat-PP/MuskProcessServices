@@ -14,6 +14,7 @@ namespace MuskProcessServices
     public partial class NewSiteInspection : Form
     {
         private List<Intervention> interventions = new List<Intervention>();
+        private int siteInspectionId;
         public NewSiteInspection()
         {
             InitializeComponent();
@@ -76,8 +77,18 @@ namespace MuskProcessServices
 
         private void button3_Click(object sender, EventArgs e)
         {
+            if (siteInspectionId > 0)
+            {
+                string queryExpression = String.Format("SELECT * FROM SiteInspections");
+                DataSet result = queryExpression.getDataSetFromDB();
+
+                siteInspectionId = result.Tables[0].Rows[result.Tables[0].Rows.Count - 1].Field<int>("SiteInspectionID");
+            }
+
             // Get value from form and add them to List<Interventions>
-            interventions.Add(new Intervention(sectionDropdown.SelectedIndex,
+            interventions.Add(new Intervention(
+                siteInspectionId, 
+                sectionDropdown.SelectedIndex,
                 Int32.Parse(countField.Text),
                 commentField.Text,
                 completedCheckBox.Checked,
@@ -192,8 +203,7 @@ namespace MuskProcessServices
                     Convert.ToInt32(inspectorDropdown.SelectedValue),
                     workAreaField.Text,
                     jobDescriptionField.Text,
-                    typeField.Text,
-                    Convert.ToString(DateTime.Now)
+                    typeField.Text
                 );
 
             DBConnection.SaveSiteInspectionToDB("INSERT INTO SiteInspections(SiteID, CompletedBy, Supervisor, Inspector, WorkArea, JobDescription, Type, Status) VALUES(@SiteID, @CompletedBy, @Supervisor, @Inspector, @WorkArea, @JobDescription, @Type, @Status)", siteInspection);

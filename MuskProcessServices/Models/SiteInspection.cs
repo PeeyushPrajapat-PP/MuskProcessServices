@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,19 @@ namespace MuskProcessServices
         private string _createdAt;
 
         // Constructors
-        public SiteInspection(int siteId, int completedBy, int supervisor, int inspector, string workArea, string jobDescription, string type, string createdAt)
+        public SiteInspection(int siteInspectionId, int siteId, int completedBy, int supervisor, int inspector, string workArea, string jobDescription, string type)
+        {
+            _siteInspectionId = siteInspectionId;
+            _siteId = siteId;
+            _completedBy = completedBy;
+            _supervisor = supervisor;
+            _inspector = inspector;
+            _workArea = workArea;
+            _jobDescription = jobDescription;
+            _type = type;
+            _status = 0;
+        }
+        public SiteInspection(int siteId, int completedBy, int supervisor, int inspector, string workArea, string jobDescription, string type)
         {
             _siteId = siteId;
             _completedBy = completedBy;
@@ -33,10 +46,27 @@ namespace MuskProcessServices
             _jobDescription = jobDescription;
             _type = type;
             _status = 0;
-            _createdAt =createdAt;
         }
 
         // Methods
+        public static SiteInspection getSiteInspection(int siteInspectionId)
+        {
+            string queryExpression = String.Format("SELECT * FROM SiteInspections WHERE SiteInspectionID='{0}'", siteInspectionId);
+            DataRow result = queryExpression.getDataSetFromDB().Tables[0].Rows[0];
+
+            SiteInspection siteInspection = new SiteInspection(
+                result.Field<int>("SiteInspectionID"),
+                result.Field<int>("SiteID"),
+                result.Field<int>("CompletedBy"),
+                result.Field<int>("Supervisor"),
+                result.Field<int>("Inspector"),
+                result.Field<string>("WorkArea"),
+                result.Field<string>("JobDescription"),
+                result.Field<string>("Type")
+                );
+
+            return siteInspection;
+        }
         public int? SiteInspectionId
         {
             get { return _siteInspectionId; }
