@@ -6,15 +6,18 @@ namespace MuskProcessServices
 {
     class SubHeader
     {
-        private int _subHeaderID { get; set; }
-        private string _subTitle { get; set; }
-        private int _headerID { get; set; }
-        private DateTime? _updatedAt { get; set; }
-        private DateTime? _createdAt { get; set; }
+        // Attributes
+
+        private int _subHeaderID { get;}
+        private string _subTitle { get;}
+        private int _headerID { get;}
+        private DateTime? _updatedAt { get;}
+        private DateTime? _createdAt { get;}
 
         // Constructor
         public SubHeader(int subHeaderId, string subTitle, int headerId)
         {
+            //item from database
             _subHeaderID = subHeaderId;
             _subTitle = subTitle;
             _headerID = headerId;
@@ -23,13 +26,15 @@ namespace MuskProcessServices
         // Methods
         public static DataSet getAllSubHeaders()
         {
-            // Select all subHeaders from database 
+            // Query - Select all subHeaders from database 
             string queryExpression = String.Format("SELECT * FROM SubHeaders");
+            //Using query method from SharedMethod.cs
             DataSet result = queryExpression.getDataSetFromDB();
 
-            // Empty list of subHeaders
+            // Empty subHeaders in a new list
             List<SubHeader> subHeaders = new List<SubHeader>();
 
+            //Obtaining data from DB table SubHeaders and Headers
             foreach (DataRow row in result.Tables[0].Rows)
             {
                 subHeaders.Add(new SubHeader(row.Field<int>("SubHeaderID"), row.Field<string>("SubTitle"), row.Field<int>("HeaderID")));
@@ -41,6 +46,7 @@ namespace MuskProcessServices
 
         public static List<SubHeader> getSubHeaders()
         {
+
             string queryExpression = String.Format("SELECT * FROM SubHeaders");
             DataTable result = queryExpression.getDataSetFromDB().Tables[0];
             List<SubHeader> subHeaders = new List<SubHeader>();

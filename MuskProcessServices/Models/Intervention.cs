@@ -7,6 +7,8 @@ namespace MuskProcessServices.Models
 {
     class Intervention
     {
+        // Attributes
+
         private int _interventionId { get; set; }
         private int _siteInspectionId { get; set; }
         private int _subHeaderId { get; set; }
@@ -20,8 +22,10 @@ namespace MuskProcessServices.Models
 
         public Intervention() { }
 
+        // Constructor
         public Intervention(int siteInspectionId, int subHeaderId, int count, string comment, bool completed, string actionTaken)
         {
+
             _siteInspectionId = siteInspectionId;
             _subHeaderId = subHeaderId;
             _count = count;
@@ -30,10 +34,14 @@ namespace MuskProcessServices.Models
             _actionTaken = actionTaken;
         }
 
+        // Query - Select data from databse table Interventions
         public static List<Intervention> getInterventions(int siteInspectionId)
         {
+            
             string queryExpression = String.Format("SELECT * FROM Interventions WHERE SiteInspectionID='{0}'", siteInspectionId);
+            //Using query method from SharedMethod.cs
             DataTable result = queryExpression.getDataSetFromDB().Tables[0];
+            //Add items in new list Interventions
             List<Intervention> interventions = new List<Intervention>();
 
             foreach (DataRow row in result.Rows)
@@ -43,6 +51,7 @@ namespace MuskProcessServices.Models
                     row.Field<int>("SubHeaderID"),
                     row.Field<int>("Count"),
                     row.Field<string>("Comment"),
+                    //convert to bolean when completed is ticked
                     Convert.ToBoolean(row.Field<int>("Completed")),
                     row.Field<string>("ActionTaken")
                     );
@@ -76,6 +85,7 @@ namespace MuskProcessServices.Models
                 sqlCommand.ExecuteNonQuery();
             }
         }
+
 
         public int InterventionID
         {

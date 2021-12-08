@@ -7,10 +7,10 @@ namespace MuskProcessServices
     public class Header
     {
         // Attributes
-        private int _headerId { get; set; }
-        private string _title { get; set; }
-        private DateTime? _updatedAt { get; set; }
-        private DateTime? _createdAt { get; set; }
+        private int _headerId { get;}
+        private string _title { get;}
+        private DateTime? _updatedAt { get;}
+        private DateTime? _createdAt { get;}
 
         // Constructor
         public Header(int headerId, string title)
@@ -22,9 +22,14 @@ namespace MuskProcessServices
         // Methods
         public static List<Header> getHeaders()
         {
+
+            //Query - Get data from DB table Header and add header selection to new list Header
+        
             string queryExpression = String.Format("SELECT * FROM Headers");
+            //Using query method from SharedMethod.cs
             DataTable result = queryExpression.getDataSetFromDB().Tables[0];
             List<Header> headers = new List<Header>();
+
 
             foreach (DataRow row in result.Rows)
             {

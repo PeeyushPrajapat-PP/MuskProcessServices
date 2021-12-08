@@ -45,7 +45,7 @@ namespace MuskProcessServices
             inspectorDropdown.ValueMember = "UserID";
             inspectorDropdown.DisplayMember = "Fullname";
 
-            //SubHeader dropdown items
+            //SubHeader dropdown items 
             sectionDropdown.DataSource = SubHeader.getAllSubHeaders().Tables[0];
             sectionDropdown.ValueMember = "SubHeaderID";
             sectionDropdown.DisplayMember = "SubTitle";
@@ -154,6 +154,21 @@ namespace MuskProcessServices
         {
             this.Hide();
             User.Logout();
+        }
+
+        private void sectionDropdown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void countField_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void commentField_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
