@@ -62,6 +62,8 @@ namespace MuskProcessServices.Models
             return interventions;
         }
 
+        //Runned when User click finish btn
+
         public static void SaveToDB(string sqlQuery, Intervention item, int siteInspectionId)
         {
             using (SqlConnection connToDB = new SqlConnection(Properties.Settings.Default.DBConnectionString))
