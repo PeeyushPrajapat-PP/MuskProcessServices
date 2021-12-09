@@ -115,7 +115,7 @@ namespace MuskProcessServices
             SiteInspection siteInspection =
                 new SiteInspection(
                     Convert.ToInt32(siteDropdown.SelectedValue),
-                    1, // edit to take currentUser.UserId value
+                    SharedMethods.CurrentUser.UserId,
                     Convert.ToInt32(supervisorDropdown.SelectedValue),
                     Convert.ToInt32(inspectorDropdown.SelectedValue),
                     workAreaField.Text,

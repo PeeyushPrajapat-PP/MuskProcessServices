@@ -42,8 +42,6 @@ namespace MuskProcessServices
                 sqlCommand.Parameters.Add(new SqlParameter("Type", item.Type));
                 sqlCommand.Parameters.Add(new SqlParameter("Status", item.Status));
 
-                MessageBox.Show(item.SiteId.ToString());
-
                 // execute the command
                 sqlCommand.ExecuteNonQuery();
             }

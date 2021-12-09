@@ -97,6 +97,7 @@ namespace MuskProcessServices {
         {
             User user = new User();
 
+            user._userId = datarow.Field<int>("UserID");
             user._email = datarow.Field<string>("Email");
             user._firstname = datarow.Field<string>("Firstname");
             user._surname = datarow.Field<string>("Surname");
