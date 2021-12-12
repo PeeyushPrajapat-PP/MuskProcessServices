@@ -26,7 +26,7 @@ namespace MuskProcessServices
             commentField.Enabled = false;
             completedCheckBox.Enabled = false;
             actionTakenField.Enabled = false;
-            button3.Enabled = false;
+            addNewBtn.Enabled = false;
         }
 
         private void populateDropdownFields()
@@ -62,7 +62,7 @@ namespace MuskProcessServices
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void addNewBtn_Click(object sender, EventArgs e)
         {
             if (siteInspectionId > 0)
             {
@@ -131,7 +131,7 @@ namespace MuskProcessServices
             commentField.Enabled = true;
             completedCheckBox.Enabled = true;
             actionTakenField.Enabled = true;
-            button3.Enabled = true;
+            addNewBtn.Enabled = true;
             
 
             // Disable Site Inspection details form

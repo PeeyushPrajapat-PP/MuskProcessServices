@@ -32,7 +32,7 @@ namespace MuskProcessServices
             this.commentField = new System.Windows.Forms.TextBox();
             this.completedCheckBox = new System.Windows.Forms.CheckBox();
             this.actionTakenField = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.addNewBtn = new System.Windows.Forms.Button();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
@@ -94,17 +94,17 @@ namespace MuskProcessServices
             this.actionTakenField.TabIndex = 9;
             this.actionTakenField.Text = "Type here..";
             // 
-            // button3
+            // addNewBtn
             // 
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Location = new System.Drawing.Point(568, 515);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(94, 35);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Add New";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.addNewBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.addNewBtn.Location = new System.Drawing.Point(568, 515);
+            this.addNewBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.addNewBtn.Name = "addNewBtn";
+            this.addNewBtn.Size = new System.Drawing.Size(94, 35);
+            this.addNewBtn.TabIndex = 10;
+            this.addNewBtn.Text = "Add New";
+            this.addNewBtn.UseVisualStyleBackColor = true;
+            this.addNewBtn.Click += new System.EventHandler(this.addNewBtn_Click);
             // 
             // textBox5
             // 
@@ -395,7 +395,7 @@ namespace MuskProcessServices
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.addNewBtn);
             this.Controls.Add(this.actionTakenField);
             this.Controls.Add(this.completedCheckBox);
             this.Controls.Add(this.commentField);
@@ -418,7 +418,7 @@ namespace MuskProcessServices
         private System.Windows.Forms.TextBox commentField;
         private System.Windows.Forms.CheckBox completedCheckBox;
         private System.Windows.Forms.TextBox actionTakenField;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button addNewBtn;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox8;
