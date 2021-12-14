@@ -74,10 +74,9 @@ namespace MuskProcessServices {
             string queryExpression = String.Format("SELECT * FROM Users WHERE username='{0}' AND password='{1}'", username, password);
             DataSet result = queryExpression.getDataSetFromDB();
 
-            User currentUser = FormatDataRowToObject(result.Tables[0].Rows[0]);
-
             if (result.Tables[0].Rows.Count == 1)
             {
+                User currentUser = FormatDataRowToObject(result.Tables[0].Rows[0]);
                 SharedMethods.CurrentUser = currentUser;
                 return true;
             } else
