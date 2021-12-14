@@ -12,7 +12,6 @@ namespace MuskProcessServices
     {
         public ListOfInspections()
         {
-            // TODO: Rename variables accordingly.
             InitializeComponent();
         }
 

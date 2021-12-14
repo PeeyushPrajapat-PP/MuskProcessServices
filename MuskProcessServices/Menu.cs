@@ -16,14 +16,6 @@ namespace MuskProcessServices
         public Menu()
         {
             InitializeComponent();
-
-            // Display username of current user
-            //MessageBox.Show(AuthState.CurrentUser.Username);
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -31,21 +23,21 @@ namespace MuskProcessServices
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void addNewSiteInspectionBtn_Click(object sender, EventArgs e)
         {
             (new NewSiteInspection()).Show();
             this.Hide();
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void monthlyReportBtn_Click(object sender, EventArgs e)
         {
             (new Monthly_Inspection_Report()).Show();
             this.Hide();
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void listOfInspectionsBtn_Click(object sender, EventArgs e)
         {
             (new ListOfInspections()).Show();
             this.Hide();
